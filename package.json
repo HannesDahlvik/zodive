@@ -1,0 +1,17 @@
+{
+    "name": "budgety",
+    "version": "0.0.0",
+    "private": true,
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "scripts": {
+        "dev": "turbo run dev --parallel",
+        "build": "turbo run build"
+    },
+    "devDependencies": {
+        "prettier": "^2.8.3",
+        "turbo": "^1.7.0"
+    }
+}
