@@ -1,12 +1,11 @@
-import { NextPage } from 'next'
-import { AppProps } from 'next/app'
-import Head from 'next/head'
+import { AppType } from 'next/app'
+import { api } from '../utils/api'
 
 import { useEffect } from 'react'
 
 import '@zodive/ui/styles'
 
-const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
+const MyApp: AppType = ({ Component, pageProps }) => {
     useEffect(() => {
         if (
             localStorage.theme === 'dark' ||
@@ -19,15 +18,7 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
         }
     }, [])
 
-    return (
-        <>
-            <Head>
-                <title>Zodive</title>
-            </Head>
-
-            <Component {...pageProps} />
-        </>
-    )
+    return <Component {...pageProps} />
 }
 
-export default MyApp
+export default api.withTRPC(MyApp)
