@@ -1,11 +1,15 @@
 import { AppType } from 'next/app'
+import { useEffect } from 'react'
+import { SessionProvider } from 'next-auth/react'
+
 import { api } from '../utils/api'
 
-import { useEffect } from 'react'
-
+import { Noto_Sans } from '@next/font/google'
 import '@zodive/ui/styles'
 
-const MyApp: AppType = ({ Component, pageProps }) => {
+const notoSans = Noto_Sans({ weight: ['100', '300', '400', '600', '700'] })
+
+const MyApp: AppType = ({ Component, pageProps: { session, ...pageProps } }: any) => {
     useEffect(() => {
         if (
             localStorage.theme === 'dark' ||
@@ -18,7 +22,19 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         }
     }, [])
 
-    return <Component {...pageProps} />
+    return (
+        <>
+            <style jsx global>{`
+                html {
+                    font-family: ${notoSans.style.fontFamily};
+                }
+            `}</style>
+
+            <SessionProvider session={session}>
+                <Component {...pageProps} />
+            </SessionProvider>
+        </>
+    )
 }
 
 export default api.withTRPC(MyApp)
