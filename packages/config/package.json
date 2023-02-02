@@ -2,9 +2,9 @@
     "name": "@zodive/config",
     "version": "0.0.0",
     "private": true,
-    "exports": {
-        "./next": "./next.eslint.js"
-    },
+    "files": [
+        "next.eslint.js"
+    ],
     "dependencies": {
         "eslint": "8.32.0",
         "eslint-config-next": "13.1.4",

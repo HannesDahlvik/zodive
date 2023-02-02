@@ -1,22 +1,21 @@
-import { NextPage } from 'next'
+import { NextPageWithLayout } from '../_app'
 
-import { signOut } from 'next-auth/react'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../api/auth/[...nextauth]'
 
-import { Button } from '@zodive/ui'
+import DashboardLayout from '~/layouts/Dashboard'
 
-const DashboardPage: NextPage = () => {
+const DashboardChartsPage: NextPageWithLayout = () => {
     return (
-        <div>
-            <Button className="m-3" onClick={() => signOut()}>
-                Sign out
-            </Button>
+        <div className="p-8">
+            <p>Charts page coming soon...</p>
         </div>
     )
 }
 
-export default DashboardPage
+DashboardChartsPage.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>
+
+export default DashboardChartsPage
 
 export async function getServerSideProps(context: any) {
     const session = await getServerSession(context.req, context.res, authOptions)

@@ -21,7 +21,8 @@ const styles = cva(
                 tertiary: 'bg-tertiary-500 hover:bg-tertiary-600 text-white',
                 success: 'bg-success-500 hover:bg-success-600 text-black',
                 warning: 'bg-warning-500 hover:bg-warning-600 text-black',
-                error: 'bg-error-500 hover:bg-error-600 text-black'
+                error: 'bg-error-500 hover:bg-error-600 text-black',
+                surface: 'bg-surface-500 hover:bg-surface-600 text-white'
             },
             size: {
                 xs: 'py-1.5 px-2 text-xs',

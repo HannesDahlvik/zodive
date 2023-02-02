@@ -8,6 +8,24 @@ const nextConfig = {
     },
     publicRuntimeConfig: {
         NODE_ENV: env.NODE_ENV
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'googleusercontent.com',
+                port: ''
+            }
+        ]
+    },
+    async redirects() {
+        return [
+            {
+                source: '/dashboard',
+                destination: '/dashboard/home',
+                permanent: true
+            }
+        ]
     }
 }
 

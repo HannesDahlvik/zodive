@@ -1,5 +1,8 @@
-import { AppType } from 'next/app'
+import { NextPage } from 'next'
+import { AppProps, AppType } from 'next/app'
+
 import { useEffect } from 'react'
+
 import { SessionProvider } from 'next-auth/react'
 
 import { api } from '../utils/api'
@@ -9,7 +12,15 @@ import '@zodive/ui/styles'
 
 const notoSans = Noto_Sans({ weight: ['100', '300', '400', '600', '700'] })
 
-const MyApp: AppType = ({ Component, pageProps: { session, ...pageProps } }: any) => {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+    getLayout?: (page: React.ReactElement) => React.ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+    Component: NextPageWithLayout
+}
+
+const MyApp = (({ Component, pageProps: { session, ...pageProps } }: AppPropsWithLayout) => {
     useEffect(() => {
         if (
             localStorage.theme === 'dark' ||
@@ -22,6 +33,8 @@ const MyApp: AppType = ({ Component, pageProps: { session, ...pageProps } }: any
         }
     }, [])
 
+    const getLayout = Component.getLayout ?? ((page) => page)
+
     return (
         <>
             <style jsx global>{`
@@ -31,10 +44,10 @@ const MyApp: AppType = ({ Component, pageProps: { session, ...pageProps } }: any
             `}</style>
 
             <SessionProvider session={session}>
-                <Component {...pageProps} />
+                {getLayout(<Component {...pageProps} />)}
             </SessionProvider>
         </>
     )
-}
+}) as AppType
 
 export default api.withTRPC(MyApp)

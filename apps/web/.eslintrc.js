@@ -1,4 +1,4 @@
 module.exports = {
-    root: true,
-    extends: ['@zodive/config/next']
+    ...require('@zodive/config/next.eslint'),
+    root: true
 }
