@@ -1,0 +1,13 @@
+{
+    "name": "@zd/config",
+    "version": "0.0.0",
+    "files": [
+        "eslint-next.js",
+        "tsconfig-next.json"
+    ],
+    "devDependencies": {
+        "@tsconfig/next": "^1.0.5",
+        "eslint": "8.38.0",
+        "eslint-config-next": "13.3.0"
+    }
+}
