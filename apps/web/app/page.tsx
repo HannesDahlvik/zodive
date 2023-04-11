@@ -1,7 +1,9 @@
+import { H1, P } from '@zd/ui'
+
 export default function HomePage() {
     return (
         <div>
-            <h1>Zodive</h1>
+            <H1>Zodive</H1>
         </div>
     )
 }
