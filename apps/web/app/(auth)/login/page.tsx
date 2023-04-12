@@ -1,4 +1,4 @@
-import { Button, ButtonLink, H2, Input } from '@zd/ui'
+import { Button, ButtonLink, H2, Input } from '@zodive/ui'
 import AuthProviders from '~/components/auth/AuthProviders'
 
 export default function LoginPage() {

@@ -19,7 +19,7 @@ importers:
       '@phosphor-icons/react':
         specifier: ^2.0.8
         version: 2.0.8(react-dom@18.2.0)(react@18.2.0)
-      '@zd/ui':
+      '@zodive/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       next:
@@ -41,7 +41,7 @@ importers:
       '@types/react-dom':
         specifier: 18.0.11
         version: 18.0.11
-      '@zd/config':
+      '@zodive/config':
         specifier: workspace:*
         version: link:../../packages/config
       autoprefixer:
@@ -99,7 +99,7 @@ importers:
       '@types/react':
         specifier: 18.0.34
         version: 18.0.34
-      '@zd/config':
+      '@zodive/config':
         specifier: workspace:*
         version: link:../config
       autoprefixer:

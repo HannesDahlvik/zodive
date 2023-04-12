@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, ButtonLink, H1 } from '@zd/ui'
+import { Button, ButtonLink, H1 } from '@zodive/ui'
 import { toggleTheme } from '~/lib/utils'
 
 export default function HomePage() {

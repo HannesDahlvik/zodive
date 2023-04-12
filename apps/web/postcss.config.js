@@ -1,1 +1,1 @@
-module.exports = require('@zd/ui/postcss')
+module.exports = require('@zodive/ui/postcss')

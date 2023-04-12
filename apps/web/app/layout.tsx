@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 
 import './globals.css'
-import { Theme, cn } from '@zd/ui'
+import { Theme, cn } from '@zodive/ui'
 
 const lato = Lato({
     weight: ['100', '300', '400', '700', '900'],

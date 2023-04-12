@@ -3,7 +3,7 @@ const nextConfig = {
     experimental: {
         appDir: true
     },
-    transpilePackages: ['@zd/ui']
+    transpilePackages: ['@zodive/ui']
 }
 
 module.exports = nextConfig

@@ -5,7 +5,7 @@ import { PropsWithChildren } from 'react'
 import Link from 'next/link'
 
 import { CaretLeft } from '@phosphor-icons/react'
-import { buttonVariants, cn } from '@zd/ui'
+import { buttonVariants, cn } from '@zodive/ui'
 
 export default function AuthLayout({ children }: PropsWithChildren) {
     return (

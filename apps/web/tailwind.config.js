@@ -1,1 +1,1 @@
-module.exports = require('@zd/ui/tailwind')
+module.exports = require('@zodive/ui/tailwind')

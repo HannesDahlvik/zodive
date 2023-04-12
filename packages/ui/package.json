@@ -1,5 +1,5 @@
 {
-    "name": "@zd/ui",
+    "name": "@zodive/ui",
     "version": "0.0.0",
     "main": "./src/index.ts",
     "exports": {
@@ -20,7 +20,7 @@
     "devDependencies": {
         "@types/node": "18.15.11",
         "@types/react": "18.0.34",
-        "@zd/config": "workspace:*",
+        "@zodive/config": "workspace:*",
         "autoprefixer": "^10.4.14",
         "postcss": "^8.4.21",
         "tailwindcss": "^3.3.1"

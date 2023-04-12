@@ -1,7 +1,7 @@
 'use client'
 
 import { GithubLogo, IconContext } from '@phosphor-icons/react'
-import { Button } from '@zd/ui'
+import { Button } from '@zodive/ui'
 
 export default function AuthProviders() {
     return (
