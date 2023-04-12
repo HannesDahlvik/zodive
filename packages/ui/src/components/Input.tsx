@@ -8,7 +8,7 @@ const inputVariants = cva(
     [
         'h-10 w-full bg-transparent px-3 py-2 text-sm rounded border border-slate-300 outline-none transition-all',
         'dark:border-surface-600',
-        'focus-within:border-blue-500 dark:focus-within:border-blue-500',
+        'focus-within:border-primary-700 dark:focus-within:border-white',
         'disabled:cursor-not-allowed disabled:opacity-50'
     ],
     {

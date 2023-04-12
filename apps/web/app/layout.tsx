@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en">
             <body
                 className={cn([
-                    'bg-white dark:bg-surface-900 dark:text-white duration-200',
+                    'bg-primary-100 dark:bg-surface-900 dark:text-white duration-200',
                     lato.className
                 ])}
             >
