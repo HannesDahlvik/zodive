@@ -8,7 +8,7 @@ export default function HomePage() {
             <div className="flex gap-2 mt-4">
                 <ButtonLink href="/dashboard">Dashboard</ButtonLink>
 
-                <ButtonLink href="/signin">Signin</ButtonLink>
+                <ButtonLink href="/signin">Sign in</ButtonLink>
             </div>
         </div>
     )

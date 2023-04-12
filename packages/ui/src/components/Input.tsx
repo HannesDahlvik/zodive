@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { cn, genRandomString } from '..'
+import { cn } from '..'
 import { Label } from './Label'
 import { VariantProps, cva } from 'class-variance-authority'
 
 const inputVariants = cva(
     [
-        'h-10 w-full bg-transparent px-3 py-2 text-sm rounded border border-slate-300 outline-none transition-all',
-        'dark:border-surface-600',
+        'h-10 w-full bg-transparent px-3 py-2 text-sm rounded border border-border-light outline-none transition-all',
+        'dark:border-border-dark',
         'focus-within:border-primary-700 dark:focus-within:border-white',
         'disabled:cursor-not-allowed disabled:opacity-50'
     ],

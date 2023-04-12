@@ -18,7 +18,7 @@ const buttonVariants = cva(
                 default:
                     'bg-primary-900 text-white hover:bg-primary-800 dark:bg-primary-100 dark:text-black dark:hover:bg-primary-200',
                 outline:
-                    'bg-transparent border border-slate-300 hover:bg-slate-300/25 dark:border-surface-500 dark:hover:bg-surface-700',
+                    'bg-transparent border border-border-light hover:bg-slate-300/25 dark:border-border-dark dark:hover:bg-surface-700',
                 error: 'bg-red-500 text-white hover:bg-red-600',
                 link: 'bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-100'
             },

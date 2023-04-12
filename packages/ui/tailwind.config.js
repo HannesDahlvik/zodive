@@ -5,6 +5,10 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                border: {
+                    light: '#cbd5e1',
+                    dark: '#333333'
+                },
                 primary: {
                     50: '#F2F2F2',
                     100: '#EEEEEE',
