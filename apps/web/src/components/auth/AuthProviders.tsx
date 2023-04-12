@@ -1,21 +1,30 @@
 'use client'
 
-import { GithubLogo, IconContext } from '@phosphor-icons/react'
 import { Button } from '@zodive/ui'
+import { BuiltInProviderType } from 'next-auth/providers'
+import { ClientSafeProvider, LiteralUnion, signIn } from 'next-auth/react'
 
-export default function AuthProviders() {
+interface Props {
+    providers: Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider>
+}
+
+export default function AuthProviders({ providers }: Props) {
     return (
-        <IconContext.Provider
-            value={{
-                size: 18,
-                weight: 'fill'
-            }}
-        >
-            <div className="flex flex-col">
-                <Button variant="outline" className="gap-2">
-                    <GithubLogo /> Github
-                </Button>
-            </div>
-        </IconContext.Provider>
+        <div className="flex flex-col gap-2">
+            {Object.values(providers).map((provider) => (
+                <div key={provider.name} className="flex flex-col">
+                    <Button
+                        variant="outline"
+                        onClick={() =>
+                            signIn(provider.id, {
+                                callbackUrl: '/dashboard'
+                            })
+                        }
+                    >
+                        {provider.name}
+                    </Button>
+                </div>
+            ))}
+        </div>
     )
 }

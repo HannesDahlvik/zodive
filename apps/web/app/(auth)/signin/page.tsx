@@ -1,19 +1,22 @@
 import { Metadata } from 'next'
 
-import { ButtonLink, H2 } from '@zodive/ui'
+import { H2 } from '@zodive/ui'
+import { getProviders } from 'next-auth/react'
 import AuthProviders from '~/components/auth/AuthProviders'
-import LoginForm from '~/components/auth/LoginForm'
+import SigninForm from '~/components/auth/SigninForm'
 
 export const metadata: Metadata = {
-    title: 'Login'
+    title: 'Signin'
 }
 
-export default function LoginPage() {
+export default async function SigninPage() {
+    const providers = await getProviders()
+
     return (
         <>
-            <H2 className="mb-6 pb-0">Login</H2>
+            <H2 className="mb-6 pb-0">Signin</H2>
 
-            <LoginForm />
+            <SigninForm />
 
             <div className="relative">
                 <div className="absolute inset-0 flex items-center">
@@ -26,11 +29,7 @@ export default function LoginPage() {
                 </div>
             </div>
 
-            <AuthProviders />
-
-            <ButtonLink href="/signup" variant="link">
-                Don't have an account? Sign up
-            </ButtonLink>
+            {providers && <AuthProviders providers={providers} />}
         </>
     )
 }

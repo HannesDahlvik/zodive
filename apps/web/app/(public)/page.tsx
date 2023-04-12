@@ -6,9 +6,9 @@ export default function HomePage() {
             <H1>Zodive</H1>
 
             <div className="flex gap-2 mt-4">
-                <ButtonLink href="/signup">Signup</ButtonLink>
+                <ButtonLink href="/dashboard">Dashboard</ButtonLink>
 
-                <ButtonLink href="/login">Login</ButtonLink>
+                <ButtonLink href="/signin">Signin</ButtonLink>
             </div>
         </div>
     )

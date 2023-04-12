@@ -1,6 +1,9 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { prisma } from '@zodive/db'
+import { env } from '@zodive/env'
 import { type DefaultSession, type NextAuthOptions } from 'next-auth'
+import GithubProvider from 'next-auth/providers/github'
+import GoogleProvider from 'next-auth/providers/google'
 
 declare module 'next-auth' {
     interface Session extends DefaultSession {
@@ -13,7 +16,7 @@ declare module 'next-auth' {
 export const authOptions: NextAuthOptions = {
     adapter: PrismaAdapter(prisma),
     pages: {
-        signIn: '/login'
+        signIn: '/signin'
     },
     callbacks: {
         session({ session, user }) {
@@ -23,5 +26,14 @@ export const authOptions: NextAuthOptions = {
             return session
         }
     },
-    providers: []
+    providers: [
+        GithubProvider({
+            clientId: env.GITHUB_CLIENT_ID,
+            clientSecret: env.GITHUB_CLIENT_SECRET
+        }),
+        GoogleProvider({
+            clientId: env.GOOGLE_CLIENT_ID,
+            clientSecret: env.GOOGLE_CLIENT_SECRET
+        })
+    ]
 }
