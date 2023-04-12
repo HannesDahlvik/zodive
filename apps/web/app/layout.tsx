@@ -3,6 +3,7 @@ import { Lato } from 'next/font/google'
 
 import './globals.css'
 import { Theme, cn } from '@zodive/ui'
+import Providers from '~/components/Providers'
 
 const lato = Lato({
     weight: ['100', '300', '400', '700', '900'],
@@ -33,7 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     lato.className
                 ])}
             >
-                <Theme>{children}</Theme>
+                <Providers>
+                    <Theme>{children}</Theme>
+                </Providers>
             </body>
         </html>
     )

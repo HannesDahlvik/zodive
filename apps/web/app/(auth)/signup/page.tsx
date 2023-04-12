@@ -1,22 +1,19 @@
-import { Button, ButtonLink, H2, Input } from '@zodive/ui'
+import { Metadata } from 'next'
+
+import { ButtonLink, H2 } from '@zodive/ui'
 import AuthProviders from '~/components/auth/AuthProviders'
+import SignupForm from '~/components/auth/SignupForm'
+
+export const metadata: Metadata = {
+    title: 'Signup'
+}
 
 export default function SignupPage() {
     return (
         <>
             <H2 className="mb-6 pb-0">Signup</H2>
 
-            <form className="flex flex-col gap-4">
-                <Input label="Username" type="email" placeholder="Jon Doe" required />
-
-                <Input label="Email" type="email" placeholder="name@example.com" required />
-
-                <Input label="Password" type="password" placeholder="********" required />
-
-                <Button type="submit" className="w-full">
-                    Signup
-                </Button>
-            </form>
+            <SignupForm />
 
             <div className="relative">
                 <div className="absolute inset-0 flex items-center">

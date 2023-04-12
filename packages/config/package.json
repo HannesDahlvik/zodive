@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "files": [
         "eslint-next.js",
+        "tsconfig-base.json",
         "tsconfig-next.json"
     ],
     "devDependencies": {

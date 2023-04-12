@@ -1,7 +1,4 @@
-'use client'
-
-import { Button, ButtonLink, H1 } from '@zodive/ui'
-import { toggleTheme } from '~/lib/utils'
+import { ButtonLink, H1 } from '@zodive/ui'
 
 export default function HomePage() {
     return (
@@ -12,8 +9,6 @@ export default function HomePage() {
                 <ButtonLink href="/signup">Signup</ButtonLink>
 
                 <ButtonLink href="/login">Login</ButtonLink>
-
-                <Button onClick={toggleTheme}>Toggle theme</Button>
             </div>
         </div>
     )

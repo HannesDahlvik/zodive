@@ -28,19 +28,17 @@ export interface InputProps
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({ className, error, label, required, ...props }, ref) => {
-        const id = genRandomString()
-
         return (
             <div className="flex flex-col items-start gap-[0.1rem]">
                 {label && (
-                    <Label htmlFor={id}>
+                    <Label htmlFor={label}>
                         {label} {required && <span className="text-red-500 text-base">*</span>}
                     </Label>
                 )}
 
                 <input
                     className={cn(inputVariants({ className, error }))}
-                    id={id}
+                    id={label}
                     ref={ref}
                     {...props}
                 />

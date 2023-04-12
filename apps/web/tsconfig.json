@@ -3,6 +3,7 @@
     "extends": "@zodive/config/tsconfig-next",
     "compilerOptions": {
         "baseUrl": ".",
+        "strict": true,
         "paths": {
             "~/*": ["./src/*"]
         }
