@@ -6,19 +6,17 @@ const t = initTRPC.context<typeof createContext>().create({
     transformer: superjson
 })
 
-const isAuthed = t.middleware(({ ctx, next }) => {
-    if (!ctx.session?.user) {
+export const router = t.router
+
+export const procedure = t.procedure
+export const authedProcedure = t.procedure.use(({ ctx, next }) => {
+    if (!ctx.user) {
         throw new TRPCError({ code: 'UNAUTHORIZED', message: 'You are not authorized' })
     }
 
     return next({
         ctx: {
-            session: ctx.session
+            user: ctx.user
         }
     })
 })
-
-export const router = t.router
-
-export const procedure = t.procedure
-export const authedProcedure = t.procedure.use(isAuthed)

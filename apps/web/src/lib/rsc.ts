@@ -1,14 +1,15 @@
-import { appRouter, createContext, getSession } from '@zodive/api'
-import superjson from 'superjson'
-import { createTRPCNextLayout } from '~/components/createTRPCNextLayout'
+import { redirect } from 'next/navigation'
 
-export const rsc = createTRPCNextLayout({
-    router: appRouter,
-    transformer: superjson,
-    createContext() {
-        return createContext({
-            type: 'rsc',
-            session: getSession()
-        })
-    }
-})
+import { appRouter } from '@zodive/api'
+import { authOptions } from '@zodive/auth'
+import { getServerSession } from 'next-auth'
+
+export const rsc = async () => {
+    const session = await getServerSession(authOptions)
+    if (!session) return redirect('/signin')
+
+    const caller = appRouter.createCaller({
+        user: session.user
+    })
+    return caller
+}
