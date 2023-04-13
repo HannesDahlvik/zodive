@@ -3,9 +3,9 @@
 import { usePathname, useRouter } from 'next/navigation'
 
 import SidebarLink from './SidebarLink'
-import { House, IconContext, Moon, SignOut, Sun } from '@phosphor-icons/react'
-import { ButtonLink } from '@zodive/ui'
-import { signOut } from 'next-auth/react'
+import { GearSix, House, IconContext, Moon, SignOut, Sun } from '@phosphor-icons/react'
+import { Button, ButtonLink } from '@zodive/ui'
+import { signOut, useSession } from 'next-auth/react'
 import { useTheme } from '~/hooks/useTheme'
 import { DashboardSidebarLink } from '~/lib/types'
 
@@ -14,11 +14,18 @@ const links: DashboardSidebarLink[] = [
         title: 'Home',
         path: '/dashboard',
         icon: <House />
+    },
+    {
+        title: 'Settings',
+        path: '/dashboard/settings',
+        icon: <GearSix />
     }
 ]
 
 export default function DashboardSidebar() {
     const { theme, toggleTheme } = useTheme()
+
+    const { data: session } = useSession()
 
     const router = useRouter()
     const pathname = usePathname()
@@ -47,20 +54,36 @@ export default function DashboardSidebar() {
                 })}
             </div>
 
-            <div className="flex flex-col gap-3 p-8 mt-auto">
+            <div className="flex flex-col items-center p-8 mt-auto text-center">
                 <IconContext.Provider
                     value={{
                         weight: 'fill',
-                        size: 26
+                        size: 22
                     }}
                 >
-                    <SidebarLink
-                        icon={theme === 'dark' ? <Sun /> : <Moon />}
-                        onClick={toggleTheme}
-                        title="Toggle theme"
+                    <img
+                        src={session?.user.image as string}
+                        alt={session?.user.name as string}
+                        width={64}
+                        height={64}
+                        className="rounded-full"
                     />
 
-                    <SidebarLink icon={<SignOut />} title="Sign out" onClick={() => signOut()} />
+                    <div className="mt-2">
+                        <p className="font-bold">{session?.user.name}</p>
+                        <p className="text-xs text-surface-300 dark:text-surface-200">
+                            {session?.user.email}
+                        </p>
+                    </div>
+                    <div className="flex gap-2 mt-4">
+                        <Button onClick={toggleTheme}>
+                            {theme === 'dark' ? <Sun /> : <Moon />}
+                        </Button>
+
+                        <Button onClick={() => signOut()}>
+                            <SignOut />
+                        </Button>
+                    </div>
                 </IconContext.Provider>
             </div>
         </div>

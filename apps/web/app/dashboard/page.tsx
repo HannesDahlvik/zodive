@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'Dashboard'
 }
 
-export default function DashboardHome() {
+export default function DashboardHomePage() {
     return (
         <div className="p-8">
             <H2>Dashboard home</H2>

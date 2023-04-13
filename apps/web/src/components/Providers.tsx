@@ -4,6 +4,7 @@ import { PropsWithChildren, useState } from 'react'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink, loggerLink } from '@trpc/react-query'
+import { SessionProvider } from 'next-auth/react'
 import superjson from 'superjson'
 import { api } from '~/lib/api'
 
@@ -38,8 +39,10 @@ export default function Providers({ children }: PropsWithChildren) {
         })
     )
     return (
-        <api.Provider client={trpcClient} queryClient={queryClient}>
-            <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-        </api.Provider>
+        <SessionProvider>
+            <api.Provider client={trpcClient} queryClient={queryClient}>
+                <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+            </api.Provider>
+        </SessionProvider>
     )
 }
