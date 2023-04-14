@@ -2,7 +2,7 @@ import { use } from 'react'
 
 import { Metadata } from 'next'
 
-import { Card, H4 } from '@zodive/ui'
+import { Card } from '@zodive/ui'
 import { DashboardHomeTopBar } from '~/components/dashboard/home/TopBar'
 import DashboardHomeTransactionsList from '~/components/dashboard/home/TransactionsList'
 import { createCaller } from '~/lib/caller'
@@ -30,7 +30,7 @@ export default function DashboardHomePage() {
 
                 <Card>
                     <div className="flex justify-between items-center">
-                        <H4 className="!mt-0">Transactions</H4>
+                        <h4 className="!mt-0">Transactions</h4>
                     </div>
 
                     <DashboardHomeTransactionsList transactions={transactions.reverse()} />

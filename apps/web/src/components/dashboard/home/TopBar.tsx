@@ -2,7 +2,7 @@
 
 import DashboardCreateTransactionModal from '../modals/CreateTransaction'
 import { Plus } from '@phosphor-icons/react'
-import { Button, H2, useModals } from '@zodive/ui'
+import { Button, useModals } from '@zodive/ui'
 
 export function DashboardHomeTopBar() {
     const { openModal } = useModals()
@@ -15,7 +15,7 @@ export function DashboardHomeTopBar() {
 
     return (
         <div className="flex justify-between items-center w-full">
-            <H2>Dashboard</H2>
+            <h2>Dashboard</h2>
 
             <Button onClick={handleCreateTransaction}>
                 <Plus size={24} weight="bold" /> Create

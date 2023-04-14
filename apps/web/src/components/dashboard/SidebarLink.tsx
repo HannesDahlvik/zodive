@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 
 import { IconContext } from '@phosphor-icons/react'
-import { P, cn } from '@zodive/ui'
+import { cn } from '@zodive/ui'
 
 interface Props {
     title: string
@@ -42,7 +42,7 @@ export default function SidebarLink({ active, icon, title, href, onClick }: Prop
                 {icon}
             </IconContext.Provider>
 
-            <P className="font-bold !mt-0">{title}</P>
+            <p className="font-bold !mt-0">{title}</p>
         </div>
     )
 }

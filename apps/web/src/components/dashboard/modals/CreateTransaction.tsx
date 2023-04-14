@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import type { TransactionType } from '@zodive/db'
-import { Button, Input, Tabs, TabsContent, TabsList, TabsTrigger, useModals } from '@zodive/ui'
+import { Button, Input, Tabs, TabsList, TabsTrigger, useModals } from '@zodive/ui'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { api } from '~/lib/api'

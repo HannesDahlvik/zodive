@@ -50,7 +50,7 @@ export default function DashboardHomeTransactionsList({ transactions, amount = 5
                                     {transaction.amount}€
                                 </p>
 
-                                <p className="text-primary-700 dark:text-surface-200">
+                                <p className="text-primary-700 dark:text-surface-200 !mt-0">
                                     {transaction.title}
                                 </p>
                             </div>

@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 
-import { H2 } from '@zodive/ui'
 import { getProviders } from 'next-auth/react'
 import AuthProviders from '~/components/auth/AuthProviders'
 import SigninForm from '~/components/auth/SigninForm'
@@ -14,7 +13,7 @@ export default async function SigninPage() {
 
     return (
         <>
-            <H2 className="mb-6 pb-0">Sign in</H2>
+            <h2 className="mb-6 pb-0">Sign in</h2>
 
             <SigninForm />
 
