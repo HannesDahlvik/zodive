@@ -31,10 +31,13 @@ export default function Providers({ children }: PropsWithChildren) {
             transformer: superjson
         })
     )
+
     return (
         <SessionProvider>
             <api.Provider client={trpcClient} queryClient={queryClient}>
-                <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+                <QueryClientProvider client={queryClient}>
+                    <>{children}</>
+                </QueryClientProvider>
             </api.Provider>
         </SessionProvider>
     )

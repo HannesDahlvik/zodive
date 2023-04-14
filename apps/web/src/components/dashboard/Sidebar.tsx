@@ -12,7 +12,7 @@ import { DashboardSidebarLink } from '~/lib/types'
 const links: DashboardSidebarLink[] = [
     {
         title: 'Home',
-        path: '/dashboard',
+        path: '/dashboard/home',
         icon: <House />
     },
     {
@@ -31,7 +31,7 @@ export default function DashboardSidebar() {
     const pathname = usePathname()
 
     return (
-        <div className="flex flex-col h-screen bg-white dark:bg-surface-800 border-r border-border-light dark:border-border-dark">
+        <div className="flex flex-col w-[300px] h-screen bg-white dark:bg-surface-800 border-r border-border-light dark:border-border-dark">
             <div className="p-8 text-center">
                 <ButtonLink href="/" variant="link" className="text-2xl">
                     Zodive

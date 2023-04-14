@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 
 import './globals.css'
-import { Theme, cn } from '@zodive/ui'
+import { ModalsProvider, Theme, cn } from '@zodive/ui'
 import Providers from '~/components/Providers'
 
 const lato = Lato({
@@ -37,7 +37,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
                 ])}
             >
                 <Providers>
-                    <Theme>{children}</Theme>
+                    <ModalsProvider>
+                        <Theme>{children}</Theme>
+                    </ModalsProvider>
                 </Providers>
             </body>
         </html>
