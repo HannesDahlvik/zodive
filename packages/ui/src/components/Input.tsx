@@ -31,7 +31,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                             )}
                         </Label>
 
-                        {error && <p className="text-sm leading-3">{error}</p>}
+                        {error && <p className="text-sm text-red-500 leading-3 !mt-0">{error}</p>}
                     </div>
                 )}
 

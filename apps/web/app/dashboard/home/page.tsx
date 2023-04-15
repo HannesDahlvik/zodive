@@ -3,6 +3,7 @@ import { use } from 'react'
 import { Metadata } from 'next'
 
 import { Card } from '@zodive/ui'
+import SuperJSON from 'superjson'
 import { DashboardHomeTopBar } from '~/components/dashboard/home/TopBar'
 import DashboardHomeTransactionsList from '~/components/dashboard/home/TransactionsList'
 import { createCaller } from '~/lib/caller'
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 async function getTransactions() {
     const caller = await createCaller()
-    return caller.transactions.all()
+    return SuperJSON.stringify(await caller.transactions.all())
 }
 
 export default function DashboardHomePage() {
@@ -33,7 +34,7 @@ export default function DashboardHomePage() {
                         <h4 className="!mt-0">Transactions</h4>
                     </div>
 
-                    <DashboardHomeTransactionsList transactions={transactions.reverse()} />
+                    <DashboardHomeTransactionsList transactions={transactions} />
                 </Card>
             </div>
         </div>

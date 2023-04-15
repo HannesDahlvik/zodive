@@ -10,7 +10,7 @@ import { api } from '~/lib/api'
 const createTransactionSchema = z.object({
     type: z.enum(['PAYMENT', 'RECEIVED_PAYMENT']).default('PAYMENT'),
     title: z.string().min(3).max(32),
-    amount: z.number(),
+    amount: z.number().min(1),
     date: z.date()
 })
 type CreateTransactionSchema = z.infer<typeof createTransactionSchema>

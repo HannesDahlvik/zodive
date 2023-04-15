@@ -30,6 +30,13 @@ export default function DashboardSidebar() {
     const router = useRouter()
     const pathname = usePathname()
 
+    const handleSignout = () => {
+        router.replace('/')
+        signOut({
+            redirect: false
+        })
+    }
+
     return (
         <div className="flex flex-col w-[300px] h-screen bg-white dark:bg-surface-800 border-r border-border-light dark:border-border-dark">
             <div className="p-8 text-center">
@@ -71,7 +78,7 @@ export default function DashboardSidebar() {
 
                     <div className="mt-2">
                         <p className="font-bold">{session?.user.name}</p>
-                        <p className="text-xs text-surface-300 dark:text-surface-200">
+                        <p className="!mt-0 text-xs text-surface-300 dark:text-surface-200">
                             {session?.user.email}
                         </p>
                     </div>
@@ -80,7 +87,7 @@ export default function DashboardSidebar() {
                             {theme === 'dark' ? <Sun /> : <Moon />}
                         </Button>
 
-                        <Button onClick={() => signOut()}>
+                        <Button onClick={handleSignout}>
                             <SignOut />
                         </Button>
                     </div>

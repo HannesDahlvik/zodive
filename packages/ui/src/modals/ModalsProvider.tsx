@@ -8,10 +8,10 @@ import {
     DialogContent,
     DialogDescription,
     DialogHeader,
-    DialogTitle
+    DialogTitle,
+    type DialogProps
 } from '../components/Dialog'
 import { genRandomString } from '../lib/utils'
-import { DialogProps } from '@radix-ui/react-dialog'
 
 export type ModalSettings = Partial<DialogProps> &
     Partial<{

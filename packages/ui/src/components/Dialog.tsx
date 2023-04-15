@@ -5,6 +5,7 @@ import React from 'react'
 import { cn } from '..'
 import { X } from '@phosphor-icons/react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
+import type { DialogProps } from '@radix-ui/react-dialog'
 
 const Dialog = DialogPrimitive.Root
 
@@ -85,4 +86,12 @@ const DialogDescription = React.forwardRef<
     />
 ))
 
-export { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription }
+export {
+    Dialog,
+    DialogTrigger,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    type DialogProps
+}

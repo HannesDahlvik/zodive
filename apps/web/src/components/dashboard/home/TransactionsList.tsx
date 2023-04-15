@@ -1,17 +1,36 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+
 import { ArrowDown, ArrowUp, IconContext } from '@phosphor-icons/react'
 import { Transaction } from '@zodive/db'
-import { cn } from '@zodive/ui'
+import { Skeleton, cn } from '@zodive/ui'
 import dayjs from 'dayjs'
+import SuperJSON from 'superjson'
 
 interface Props {
-    transactions: Transaction[]
+    transactions: string
     amount?: number
 }
 
 export default function DashboardHomeTransactionsList({ transactions, amount = 5 }: Props) {
-    if (transactions.length === 0)
+    const [data, setData] = useState<Transaction[] | null>(null)
+
+    useEffect(() => {
+        const arr = SuperJSON.parse<Transaction[]>(transactions)
+        setData(arr.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()))
+    }, [transactions])
+
+    if (!data)
+        return (
+            <Skeleton
+                count={5}
+                height={48}
+                wrapper={({ children }) => <div className="flex flex-col mt-3">{children}</div>}
+            />
+        )
+
+    if (data.length === 0)
         return (
             <div className="flex flex-col text-center pt-8">
                 <p>You have 0 transactions</p>
@@ -20,7 +39,7 @@ export default function DashboardHomeTransactionsList({ transactions, amount = 5
 
     return (
         <div className="flex flex-col gap-3 mt-4">
-            {transactions.map((transaction, i) => {
+            {data.map((transaction, i) => {
                 const payment = transaction.type === 'PAYMENT'
                 const date = dayjs(transaction.date)
 

@@ -1,8 +1,12 @@
 'use client'
 
-import { PropsWithChildren, useEffect } from 'react'
+import { PropsWithChildren, useEffect, useState } from 'react'
+
+import { SkeletonTheme } from './Skeleton'
 
 export function Theme({ children }: PropsWithChildren) {
+    const [theme, setTheme] = useState<'light' | 'dark'>('light')
+
     useEffect(() => {
         if (
             localStorage.theme === 'dark' ||
@@ -10,10 +14,19 @@ export function Theme({ children }: PropsWithChildren) {
                 window.matchMedia('(prefers-color-scheme: dark)').matches)
         ) {
             document.documentElement.classList.add('dark')
+            setTheme('dark')
         } else {
             document.documentElement.classList.remove('dark')
+            setTheme('light')
         }
     }, [])
 
-    return <>{children}</>
+    return (
+        <SkeletonTheme
+            baseColor={theme === 'light' ? '#EEEEEE' : '#333333'}
+            highlightColor={theme === 'light' ? '#F5F5F5' : '#4D4D4D'}
+        >
+            {children}
+        </SkeletonTheme>
+    )
 }
