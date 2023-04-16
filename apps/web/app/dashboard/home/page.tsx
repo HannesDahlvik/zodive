@@ -21,7 +21,7 @@ export default function DashboardHomePage() {
     const transactions = use(getTransactions())
 
     return (
-        <div className="flex flex-col gap-4 p-8 h-screen">
+        <div className="grid grid-rows-[44px_350px_1fr] gap-4 p-8 max-h-screen h-full">
             <DashboardHomeTopBar />
 
             <Card></Card>

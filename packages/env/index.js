@@ -1,7 +1,8 @@
 const { z } = require('zod')
 
 const envSchema = z.object({
-    MYSQL_PASSWORD: z.string(),
+    POSTGRES_USER: z.string(),
+    POSTGRES_PASSWORD: z.string(),
     DATABASE_URL: z.string().url(),
     NEXTAUTH_URL: z.string().url(),
     NEXTAUTH_SECRET: z.string(),
