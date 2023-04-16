@@ -12,7 +12,7 @@
         "zod": "^3.21.4"
     },
     "devDependencies": {
-        "@zodive/config": "workspace:*",
+        "@zodive/tsconfig": "workspace:*",
         "typescript": "5.0.4"
     }
 }

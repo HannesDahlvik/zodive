@@ -6,7 +6,7 @@
         "dev": "pnpm with-env next dev",
         "build": "pnpm with-env next build",
         "start": "pnpm with-env next start",
-        "lint": "next lint",
+        "lint": "dotenv -v SKIP_ENV_VALIDATION=1 next lint",
         "with-env": "dotenv -e ../../.env --"
     },
     "dependencies": {
@@ -36,7 +36,7 @@
         "@types/node": "18.15.11",
         "@types/react": "18.0.34",
         "@types/react-dom": "18.0.11",
-        "@zodive/config": "workspace:*",
+        "@zodive/tsconfig": "workspace:*",
         "autoprefixer": "^10.4.14",
         "dotenv-cli": "^7.2.1",
         "postcss": "^8.4.21",

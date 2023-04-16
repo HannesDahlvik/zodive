@@ -1,6 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "extends": "@zodive/config/tsconfig-next",
+    "extends": "@zodive/tsconfig/nextjs.json",
     "compilerOptions": {
         "baseUrl": ".",
         "strict": true,

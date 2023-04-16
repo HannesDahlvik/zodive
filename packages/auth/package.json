@@ -13,7 +13,7 @@
         "react-dom": "18.2.0"
     },
     "devDependencies": {
-        "@zodive/config": "workspace:*",
+        "@zodive/tsconfig": "workspace:*",
         "typescript": "5.0.4"
     }
 }

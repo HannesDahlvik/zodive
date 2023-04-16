@@ -15,7 +15,7 @@
     },
     "devDependencies": {
         "@types/node": "18.15.11",
-        "@zodive/config": "workspace:*",
+        "@zodive/tsconfig": "workspace:*",
         "dotenv-cli": "^7.2.1",
         "prisma": "^4.12.0",
         "typescript": "5.0.4"

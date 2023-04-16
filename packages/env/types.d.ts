@@ -1,2 +1,1 @@
-export * from './index'
-export as namespace env
+export const env
