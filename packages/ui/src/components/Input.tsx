@@ -1,53 +1,44 @@
 import React from 'react'
 
-import { cn, genRandomString } from '..'
+import { cn } from '..'
 import { Label } from './Label'
 import { VariantProps, cva } from 'class-variance-authority'
 
-const inputVariants = cva(
-    [
-        'h-10 w-full bg-transparent px-3 py-2 text-sm rounded border border-slate-300 outline-none transition-all',
-        'dark:border-surface-600',
-        'focus-within:border-primary-700 dark:focus-within:border-white',
-        'disabled:cursor-not-allowed disabled:opacity-50'
-    ],
-    {
-        variants: {
-            error: {
-                true: 'border-red-500 focus-within:border-red-500 dark:border-red-500 dark:focus-within:border-red-500'
-            }
-        }
-    }
-)
+const inputVariants = cva([
+    'h-10 w-full bg-transparent px-3 py-2 text-sm rounded border border-border-light outline-none transition-all',
+    'dark:border-border-dark',
+    'focus-within:border-primary-700 dark:focus-within:border-primary-300',
+    'disabled:cursor-not-allowed disabled:opacity-50'
+])
 
 export interface InputProps
     extends React.InputHTMLAttributes<HTMLInputElement>,
         VariantProps<typeof inputVariants> {
     label?: string
+    error?: string
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({ className, error, label, required, ...props }, ref) => {
-        const id = genRandomString()
-
         return (
-            <div className="flex flex-col items-start gap-[0.1rem]">
+            <div className="flex flex-col items-start gap-1">
                 {label && (
-                    <Label htmlFor={id}>
-                        {label} {required && <span className="text-red-500 text-base">*</span>}
-                    </Label>
+                    <div className="flex justify-between w-full">
+                        <Label htmlFor={label}>
+                            {label}{' '}
+                            {required && (
+                                <span className="text-red-500 text-base leading-3">*</span>
+                            )}
+                        </Label>
+
+                        {error && <p className="text-sm text-red-500 leading-3 !mt-0">{error}</p>}
+                    </div>
                 )}
 
-                <input
-                    className={cn(inputVariants({ className, error }))}
-                    id={id}
-                    ref={ref}
-                    {...props}
-                />
+                <input className={cn(inputVariants(), className)} id={label} ref={ref} {...props} />
             </div>
         )
     }
 )
-Input.displayName = 'Input'
 
 export { Input }

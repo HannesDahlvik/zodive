@@ -1,8 +1,11 @@
+import { PropsWithChildren } from 'react'
+
 import { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 
 import './globals.css'
 import { Theme, cn } from '@zodive/ui'
+import Providers from '~/Providers'
 
 const lato = Lato({
     weight: ['100', '300', '400', '700', '900'],
@@ -24,7 +27,7 @@ export const metadata: Metadata = {
     }
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: PropsWithChildren) {
     return (
         <html lang="en">
             <body
@@ -33,7 +36,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     lato.className
                 ])}
             >
-                <Theme>{children}</Theme>
+                <Theme>
+                    <Providers>
+                        <>{children}</>
+                    </Providers>
+                </Theme>
             </body>
         </html>
     )

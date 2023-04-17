@@ -23,7 +23,7 @@ export default function AuthLayout({ children }: PropsWithChildren) {
             </Link>
 
             <div className="flex justify-center items-center h-screen">
-                <div className="flex flex-col gap-6 w-[90%] sm:w-[450px] bg-white border border-slate-300 p-6 sm:p-12 rounded-md text-center dark:bg-surface-800 dark:border-surface-700">
+                <div className="flex flex-col gap-6 w-[90%] sm:w-[450px] bg-white border border-border-light p-6 sm:p-12 rounded-md text-center dark:bg-surface-800 dark:border-border-dark">
                     {children}
                 </div>
             </div>

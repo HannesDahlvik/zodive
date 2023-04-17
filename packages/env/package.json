@@ -1,0 +1,9 @@
+{
+    "name": "@zodive/env",
+    "version": "0.0.0",
+    "main": "./index.js",
+    "types": "./types.d.ts",
+    "dependencies": {
+        "zod": "^3.21.4"
+    }
+}

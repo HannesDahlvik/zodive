@@ -1,14 +1,16 @@
+'use client'
+
 import React from 'react'
 
 import Link from 'next/link'
 
 import { cn } from '../lib/utils'
+import { CircleNotch } from '@phosphor-icons/react'
 import { VariantProps, cva } from 'class-variance-authority'
 
 const buttonVariants = cva(
     [
-        'inline-flex items-center justify-center rounded-md text-sm font-bold transition-colors duration-200',
-        'dark:focus:ring-offset-slate-900 dark:focus:ring-slate-400',
+        'inline-flex items-center justify-center gap-2 rounded-md text-sm font-bold transition-colors duration-200',
         'data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800',
         'disabled:opacity-50 disabled:pointer-events-none'
     ],
@@ -18,7 +20,7 @@ const buttonVariants = cva(
                 default:
                     'bg-primary-900 text-white hover:bg-primary-800 dark:bg-primary-100 dark:text-black dark:hover:bg-primary-200',
                 outline:
-                    'bg-transparent border border-slate-300 hover:bg-slate-300/25 dark:border-surface-500 dark:hover:bg-surface-700',
+                    'bg-transparent border border-border-light hover:bg-slate-300/25 hover:border-primary-700 dark:border-border-dark dark:hover:bg-surface-700 dark:hover:border-primary-300',
                 error: 'bg-red-500 text-white hover:bg-red-600',
                 link: 'bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-100'
             },
@@ -37,7 +39,10 @@ const buttonVariants = cva(
 
 export interface ButtonBaseProps extends VariantProps<typeof buttonVariants> {}
 
-export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonBaseProps
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+    ButtonBaseProps & {
+        loading?: boolean
+    }
 
 export type ButtonLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
     ButtonBaseProps & {
@@ -45,29 +50,28 @@ export type ButtonLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
     }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant, size, ...props }, ref) => {
-        return (
-            <button
-                className={cn(buttonVariants({ variant, size, className }))}
-                ref={ref}
-                {...props}
-            />
-        )
-    }
+    ({ className, loading, variant, size, ...props }, ref) => (
+        <button
+            className={cn(buttonVariants({ variant, size, className }))}
+            ref={ref}
+            disabled={props.disabled || loading}
+            {...props}
+        >
+            {loading && <CircleNotch size={20} weight="bold" className="animate-spin" />}
+            {props.children}
+        </button>
+    )
 )
-Button.displayName = 'Button'
 
 const ButtonLink = React.forwardRef<HTMLLinkElement, ButtonLinkProps>(
-    ({ className, variant, size, href, ...props }, ref) => {
-        return (
-            <Link
-                className={cn(buttonVariants({ variant, size, className }))}
-                href={href}
-                ref={ref as any}
-                {...props}
-            />
-        )
-    }
+    ({ className, variant, size, href, ...props }, ref) => (
+        <Link
+            className={cn(buttonVariants({ variant, size, className }))}
+            href={href}
+            ref={ref as any}
+            {...props}
+        />
+    )
 )
 
 export { Button, ButtonLink, buttonVariants }
