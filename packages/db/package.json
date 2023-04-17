@@ -4,8 +4,9 @@
     "main": "./index.ts",
     "types": "./index.ts",
     "scripts": {
+        "build": "pnpm db:push && pnpm db:migrate-prod",
         "db:generate": "pnpm with-env prisma generate",
-        "db:push": "pnpm with-env prisma db push --skip-generate",
+        "db:push": "pnpm with-env prisma db push",
         "db:migrate-dev": "pnpm with-env prisma migrate dev",
         "db:migrate-prod": "pnpm with-env prisma migrate deploy",
         "with-env": "dotenv -e ../../.env --"
