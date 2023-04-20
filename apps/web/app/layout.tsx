@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 
 import './globals.css'
+import { Analytics } from '@vercel/analytics/react'
 import { Theme, cn } from '@zodive/ui'
 import Providers from '~/Providers'
 
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                 <Theme>
                     <Providers>
                         <>{children}</>
+                        <Analytics />
                     </Providers>
                 </Theme>
             </body>
