@@ -2,8 +2,6 @@
 
 import { PropsWithChildren, useEffect, useState } from 'react'
 
-import { SkeletonTheme } from './Skeleton'
-
 export function Theme({ children }: PropsWithChildren) {
     const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
@@ -21,12 +19,5 @@ export function Theme({ children }: PropsWithChildren) {
         }
     }, [])
 
-    return (
-        <SkeletonTheme
-            baseColor={theme === 'light' ? '#EEEEEE' : '#333333'}
-            highlightColor={theme === 'light' ? '#F5F5F5' : '#4D4D4D'}
-        >
-            {children}
-        </SkeletonTheme>
-    )
+    return <>{children}</>
 }

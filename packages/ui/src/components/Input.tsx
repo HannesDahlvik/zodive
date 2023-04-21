@@ -5,9 +5,8 @@ import { Label } from './Label'
 import { VariantProps, cva } from 'class-variance-authority'
 
 const inputVariants = cva([
-    'h-10 w-full bg-transparent px-3 py-2 text-sm rounded border border-border-light outline-none transition-all',
-    'dark:border-border-dark',
-    'focus-within:border-primary-700 dark:focus-within:border-primary-300',
+    'h-10 w-full bg-transparent px-3 py-2 text-sm rounded border border-border outline-none transition-all',
+    'focus-within:border-border-accent',
     'disabled:cursor-not-allowed disabled:opacity-50'
 ])
 
@@ -40,5 +39,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )
     }
 )
+Input.displayName = 'Input'
 
 export { Input }

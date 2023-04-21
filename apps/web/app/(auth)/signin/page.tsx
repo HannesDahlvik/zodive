@@ -19,12 +19,10 @@ export default async function SigninPage() {
 
             <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                    <span className="w-full border-t border-border-light dark:border-border-dark" />
+                    <span className="w-full border-t border-border" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-slate-50 dark:bg-surface-800 px-2 text-slate-600 dark:text-surface-100">
-                        Or continue with
-                    </span>
+                    <span className="bg-card px-2 text-card-foreground">Or continue with</span>
                 </div>
             </div>
 

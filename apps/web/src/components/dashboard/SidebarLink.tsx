@@ -28,8 +28,8 @@ export default function SidebarLink({ active, icon, title, href, onClick }: Prop
         <div
             className={cn(
                 'flex items-center gap-4 cursor-pointer p-3 rounded-xl duration-200',
-                'hover:bg-primary-900 hover:text-white dark:hover:bg-primary-100 dark:hover:text-black',
-                active && 'bg-primary-900 text-white dark:bg-primary-100 dark:text-black'
+                'hover:bg-primary hover:text-primary-foreground',
+                active && 'bg-primary text-primary-foreground'
             )}
             onClick={handleClick}
         >
