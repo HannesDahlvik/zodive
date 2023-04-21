@@ -1,6 +1,6 @@
 {
     "name": "zodive",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "private": true,
     "packageManager": "pnpm@8.1.0",
     "workspaces": [
@@ -11,12 +11,13 @@
     "scripts": {
         "web": "turbo run dev --filter @zodive/web",
         "build": "turbo run build",
-        "lint": "turbo run lint"
+        "lint": "turbo run lint",
+        "bump": "node ./scripts/bump.js"
     },
     "devDependencies": {
         "@trivago/prettier-plugin-sort-imports": "^4.1.1",
         "eslint-config-custom": "workspace:*",
         "prettier": "^2.8.7",
-        "turbo": "^1.9.1"
+        "turbo": "^1.9.3"
     }
 }

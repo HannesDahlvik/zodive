@@ -10,7 +10,7 @@ export {
     type DialogProps
 } from './components/Dialog'
 export { Input } from './components/Input'
-export { Skeleton, SkeletonTheme } from './components/Skeleton'
+export { Skeleton } from './components/Skeleton'
 export { Tabs, TabsContent, TabsList, TabsTrigger } from './components/Tabs'
 export { Theme } from './components/Theme'
 

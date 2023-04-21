@@ -4,7 +4,8 @@ import { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 
 import './globals.css'
-import { Theme, cn } from '@zodive/ui'
+import { Analytics } from '@vercel/analytics/react'
+import { Theme } from '@zodive/ui'
 import Providers from '~/Providers'
 
 const lato = Lato({
@@ -30,15 +31,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
     return (
         <html lang="en">
-            <body
-                className={cn([
-                    'bg-primary-100 dark:bg-surface-900 dark:text-white duration-200',
-                    lato.className
-                ])}
-            >
+            <body className={lato.className}>
                 <Theme>
                     <Providers>
-                        <>{children}</>
+                        {children}
+                        <Analytics />
                     </Providers>
                 </Theme>
             </body>

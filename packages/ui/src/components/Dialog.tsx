@@ -33,6 +33,7 @@ const DialogOverlay = React.forwardRef<
         ref={ref}
     />
 ))
+DialogOverlay.displayName = 'DialogOverlay'
 
 const DialogContent = React.forwardRef<
     React.ElementRef<typeof DialogPrimitive.Content>,
@@ -43,10 +44,9 @@ const DialogContent = React.forwardRef<
         <DialogPrimitive.Content
             ref={ref}
             className={cn(
-                'fixed z-50 grid w-full gap-4 bg-white p-12 rounded-b-lg',
+                'fixed z-50 grid w-full gap-4 bg-card p-12 rounded-b-lg',
                 'sm:max-w-lg sm:rounded-lg sm:zoom-in-90',
                 'animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 data-[state=open]:sm:slide-in-from-bottom-0',
-                'dark:bg-surface-800',
                 className
             )}
             {...props}
@@ -74,6 +74,7 @@ const DialogTitle = React.forwardRef<
         {...props}
     />
 ))
+DialogTitle.displayName = 'DialogTitle'
 
 const DialogDescription = React.forwardRef<
     React.ElementRef<typeof DialogPrimitive.Description>,
@@ -85,6 +86,7 @@ const DialogDescription = React.forwardRef<
         {...props}
     />
 ))
+DialogDescription.displayName = 'DialogDescription'
 
 export {
     Dialog,

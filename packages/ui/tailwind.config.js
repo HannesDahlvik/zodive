@@ -5,36 +5,36 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                background: 'rgb(var(--background))',
+                foreground: 'rgb(var(--foreground))',
                 border: {
-                    light: '#cbd5e1',
-                    dark: '#333333'
+                    DEFAULT: 'rgb(var(--border))',
+                    accent: 'rgb(var(--border-accent))'
                 },
                 primary: {
-                    50: '#F2F2F2',
-                    100: '#EEEEEE',
-                    200: '#CCCCCC',
-                    300: '#B3B3B3',
-                    400: '#999999',
-                    500: '#808080',
-                    600: '#666666',
-                    700: '#4D4D4D',
-                    800: '#333333',
-                    900: '#1A1A1A',
-                    950: '#0D0D0D'
+                    DEFAULT: 'rgb(var(--primary))',
+                    foreground: 'rgb(var(--primary-foreground))',
+                    hover: 'rgb(var(--primary-hover))'
                 },
-                surface: {
-                    50: '#EBEBEB',
-                    100: '#D6D6D6',
-                    200: '#ADADAD',
-                    300: '#858585',
-                    400: '#5C5C5C',
-                    500: '#333333',
-                    600: '#2B2B2B',
-                    700: '#242424',
-                    800: '#1C1C1C',
-                    900: '#161616',
-                    950: '#121212'
+                accent: {
+                    DEFAULT: 'rgb(var(--accent))',
+                    foreground: 'rgb(var(--accent-foreground))'
+                },
+                muted: {
+                    DEFAULT: 'rgb(var(--muted))',
+                    foreground: 'rgb(var(--muted-foreground))'
+                },
+                card: {
+                    DEFAULT: 'rgb(var(--card))',
+                    foreground: 'rgb(var(--card-foreground))'
                 }
+            },
+            borderRadius: {
+                xl: 'calc(var(--radius) + 4px)',
+                lg: 'calc(var(--radius) + 2px)',
+                md: 'var(--radius)',
+                sm: 'calc(var(--radius) - 2px)',
+                xs: 'calc(var(--radius) - 4px)'
             }
         }
     },

@@ -1,6 +1,6 @@
 {
     "name": "@zodive/web",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "private": true,
     "scripts": {
         "dev": "pnpm with-env next dev",
@@ -17,6 +17,7 @@
         "@trpc/next": "^10.19.1",
         "@trpc/react-query": "^10.19.1",
         "@trpc/server": "^10.19.1",
+        "@vercel/analytics": "^1.0.0",
         "@zodive/api": "workspace:*",
         "@zodive/auth": "workspace:*",
         "@zodive/db": "workspace:*",

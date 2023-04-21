@@ -3,6 +3,54 @@
 @tailwind utilities;
 
 @layer base {
+    :root {
+        --background: 238, 238, 238;
+        --foreground: 0, 0, 0;
+
+        --muted: 235, 235, 235;
+        --muted-foreground: 150, 150, 150;
+
+        --card: 255, 255, 255;
+        --card-foreground: 0, 0, 0;
+
+        --border: 203, 213, 225;
+        --border-accent: 77, 77, 77;
+
+        --primary: 26, 26, 26;
+        --primary-foreground: 255, 255, 255;
+        --primary-hover: 51, 51, 51;
+
+        --accent: 214, 214, 214;
+        --accent-foreground: 0, 0, 0;
+
+        --radius: 4px;
+    }
+
+    .dark {
+        --background: 22, 22, 22;
+        --foreground: 255, 255, 255;
+
+        --muted: 36, 36, 36;
+        --muted-foreground: 140, 140, 140;
+
+        --card: 28, 28, 28;
+        --card-foreground: 255, 255, 255;
+
+        --border: 51, 51, 51;
+        --border-accent: 179, 179, 179;
+
+        --primary: 238, 238, 238;
+        --primary-foreground: 0, 0, 0;
+        --primary-hover: 204, 204, 204;
+
+        --accent: 36, 36, 36;
+        --accent-foreground: 255, 255, 255;
+
+        --radius: 4px;
+    }
+}
+
+@layer base {
     h1,
     h2,
     h3,
@@ -32,5 +80,15 @@
     }
     p {
         @apply leading-5 [&:not(:first-child)]:mt-6;
+    }
+
+    * {
+        @apply box-border;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    html,
+    body {
+        @apply bg-background text-foreground;
     }
 }

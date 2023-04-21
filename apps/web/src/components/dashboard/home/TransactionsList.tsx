@@ -23,11 +23,13 @@ export default function DashboardHomeTransactionsList({ transactions, amount = 5
 
     if (!data)
         return (
-            <Skeleton
-                count={5}
-                height={48}
-                wrapper={({ children }) => <div className="flex flex-col mt-3">{children}</div>}
-            />
+            <div className="flex flex-col gap-3 mt-4">
+                <Skeleton className="h-12" />
+                <Skeleton className="h-12" />
+                <Skeleton className="h-12" />
+                <Skeleton className="h-12" />
+                <Skeleton className="h-12" />
+            </div>
         )
 
     if (data.length === 0)
@@ -64,20 +66,21 @@ export default function DashboardHomeTransactionsList({ transactions, amount = 5
                             </div>
 
                             <div className="flex-col">
-                                <p className={cn(payment ? 'text-red-500' : 'text-green-500')}>
+                                <p
+                                    className={cn(
+                                        'font-bold',
+                                        payment ? 'text-red-500' : 'text-green-500'
+                                    )}
+                                >
                                     {payment ? '-' : '+'}
                                     {transaction.amount}€
                                 </p>
 
-                                <p className="text-primary-700 dark:text-surface-200 !mt-0">
-                                    {transaction.title}
-                                </p>
+                                <p className="text-border-accent !mt-0">{transaction.title}</p>
                             </div>
 
                             <div className="flex-col ml-auto">
-                                <p className="text-primary-700 dark:text-surface-200">
-                                    {date.format('DD MMM')}
-                                </p>
+                                <p className="text-border-accent">{date.format('DD MMM')}</p>
                             </div>
                         </div>
                     )

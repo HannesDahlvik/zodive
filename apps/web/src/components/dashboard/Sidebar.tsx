@@ -38,7 +38,7 @@ export default function DashboardSidebar() {
     }
 
     return (
-        <div className="flex flex-col w-[300px] h-screen bg-white dark:bg-surface-800 border-r border-border-light dark:border-border-dark">
+        <div className="flex flex-col w-[300px] h-screen bg-card border-r border-border">
             <div className="p-8 text-center">
                 <ButtonLink href="/" variant="link" className="text-2xl">
                     Zodive

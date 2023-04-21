@@ -11,16 +11,14 @@ import { VariantProps, cva } from 'class-variance-authority'
 const buttonVariants = cva(
     [
         'inline-flex items-center justify-center gap-2 rounded-md text-sm font-bold transition-colors duration-200',
-        'data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800',
         'disabled:opacity-50 disabled:pointer-events-none'
     ],
     {
         variants: {
             variant: {
-                default:
-                    'bg-primary-900 text-white hover:bg-primary-800 dark:bg-primary-100 dark:text-black dark:hover:bg-primary-200',
+                default: 'bg-primary text-primary-foreground hover:bg-primary-hover',
                 outline:
-                    'bg-transparent border border-border-light hover:bg-slate-300/25 hover:border-primary-700 dark:border-border-dark dark:hover:bg-surface-700 dark:hover:border-primary-300',
+                    'bg-transparent border border-border hover:bg-muted hover:border-border-accent',
                 error: 'bg-red-500 text-white hover:bg-red-600',
                 link: 'bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-100'
             },
@@ -62,6 +60,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         </button>
     )
 )
+Button.displayName = 'Button'
 
 const ButtonLink = React.forwardRef<HTMLLinkElement, ButtonLinkProps>(
     ({ className, variant, size, href, ...props }, ref) => (
@@ -73,5 +72,6 @@ const ButtonLink = React.forwardRef<HTMLLinkElement, ButtonLinkProps>(
         />
     )
 )
+ButtonLink.displayName = 'ButtonLink'
 
 export { Button, ButtonLink, buttonVariants }
