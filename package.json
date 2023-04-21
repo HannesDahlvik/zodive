@@ -11,7 +11,8 @@
     "scripts": {
         "web": "turbo run dev --filter @zodive/web",
         "build": "turbo run build",
-        "lint": "turbo run lint"
+        "lint": "turbo run lint",
+        "bump": "node ./scripts/bump.js"
     },
     "devDependencies": {
         "@trivago/prettier-plugin-sort-imports": "^4.1.1",
