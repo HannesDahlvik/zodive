@@ -15,9 +15,8 @@
         "@radix-ui/react-tabs": "^1.0.3",
         "class-variance-authority": "^0.5.2",
         "clsx": "^1.2.1",
-        "next": "13.3.0",
+        "next": "13.4.0",
         "react": "18.2.0",
-        "react-loading-skeleton": "^3.2.0",
         "tailwind-merge": "^1.12.0",
         "tailwindcss-animate": "^1.0.5"
     },
@@ -27,6 +26,7 @@
         "@zodive/tsconfig": "workspace:*",
         "autoprefixer": "^10.4.14",
         "postcss": "^8.4.21",
-        "tailwindcss": "^3.3.1"
+        "tailwindcss": "^3.3.1",
+        "typescript": "5.0.4"
     }
 }
