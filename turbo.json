@@ -11,12 +11,6 @@
         },
         "dev": {
             "cache": false
-        },
-        "db:generate": {
-            "cache": false
-        },
-        "db:migrate-prod": {
-            "cache": false
         }
     }
 }

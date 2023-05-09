@@ -8,13 +8,12 @@ import dayjs from 'dayjs'
 interface Props {
     transaction: Transaction
     payment: boolean
-    key: number
     date: Date
 }
 
-export default function DashboardHomeTransactionItem({ date, key, payment, transaction }: Props) {
+export default function DashboardHomeTransactionItem({ date, payment, transaction }: Props) {
     return (
-        <div className="relative flex items-center h-12" key={key}>
+        <div className="relative flex items-center h-12">
             <div
                 className={cn(
                     'flex justify-center items-center h-full w-12 mr-4 rounded-lg',

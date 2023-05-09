@@ -23,9 +23,10 @@ export default function DashboardHomeTransactionsList({ transactions, amount = 5
                     return (
                         <DashboardHomeTransactionItem
                             date={transaction.date}
-                            key={i}
+                            key={transaction.id}
                             payment={payment}
                             transaction={transaction}
+                            data-superjson
                         />
                     )
             })}
