@@ -1,4 +1,4 @@
-import { PropsWithChildren, use } from 'react'
+import { PropsWithChildren } from 'react'
 
 import { Metadata } from 'next'
 import { redirect } from 'next/navigation'
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     }
 }
 
-export default function DashboardLayout({ children }: PropsWithChildren) {
-    const session = use(getServerSession(authOptions))
+export default async function DashboardLayout({ children }: PropsWithChildren) {
+    const session = await getServerSession(authOptions)
 
     if (!session) return redirect('/signin')
 

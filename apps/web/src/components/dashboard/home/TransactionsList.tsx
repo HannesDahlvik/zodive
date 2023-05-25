@@ -1,3 +1,5 @@
+import { Fragment } from 'react'
+
 import DashboardHomeTransactionItem from './TransactionItem'
 import { Transaction } from '@zodive/db'
 
@@ -21,13 +23,14 @@ export default function DashboardHomeTransactionsList({ transactions, amount = 5
 
                 if (i < amount)
                     return (
-                        <DashboardHomeTransactionItem
-                            date={transaction.date}
-                            key={transaction.id}
-                            payment={payment}
-                            transaction={transaction}
-                            data-superjson
-                        />
+                        <Fragment key={transaction.id}>
+                            <DashboardHomeTransactionItem
+                                date={transaction.date}
+                                payment={payment}
+                                transaction={transaction}
+                                data-superjson
+                            />
+                        </Fragment>
                     )
             })}
         </div>

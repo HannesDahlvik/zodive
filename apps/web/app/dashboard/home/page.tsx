@@ -1,5 +1,3 @@
-import { use } from 'react'
-
 import { Metadata } from 'next'
 
 import { Card } from '@zodive/ui'
@@ -13,11 +11,11 @@ export const metadata: Metadata = {
 
 async function getTransactions() {
     const caller = await createCaller()
-    return await caller.transactions.all()
+    return caller.transactions.all()
 }
 
-export default function DashboardHomePage() {
-    const transactions = use(getTransactions())
+export default async function DashboardHomePage() {
+    const transactions = await getTransactions()
 
     return (
         <div className="relative grid grid-rows-[44px_350px_1fr] gap-4 p-8 max-h-screen h-full">

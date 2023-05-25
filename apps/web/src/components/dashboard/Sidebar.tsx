@@ -1,5 +1,7 @@
 'use client'
 
+import { Fragment } from 'react'
+
 import { usePathname, useRouter } from 'next/navigation'
 
 import SidebarLink from './SidebarLink'
@@ -50,13 +52,14 @@ export default function DashboardSidebar() {
                     const active = pathname === link.path
 
                     return (
-                        <SidebarLink
-                            key={link.path}
-                            active={active}
-                            icon={link.icon}
-                            title={link.title}
-                            onClick={() => router.push(link.path)}
-                        />
+                        <Fragment key={link.path}>
+                            <SidebarLink
+                                active={active}
+                                icon={link.icon}
+                                title={link.title}
+                                onClick={() => router.push(link.path)}
+                            />
+                        </Fragment>
                     )
                 })}
             </div>
