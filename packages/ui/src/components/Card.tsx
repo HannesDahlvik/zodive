@@ -1,8 +1,6 @@
-import { PropsWithChildren } from 'react'
-
 import { cn } from '..'
 
-interface Props extends React.HtmlHTMLAttributes<HTMLDivElement>, PropsWithChildren {}
+interface Props extends React.HtmlHTMLAttributes<HTMLDivElement> {}
 
 export function Card({ children, className, ...props }: Props) {
     return (

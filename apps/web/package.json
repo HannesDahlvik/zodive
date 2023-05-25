@@ -1,6 +1,6 @@
 {
     "name": "@zodive/web",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "private": true,
     "scripts": {
         "dev": "pnpm with-env next dev",
@@ -24,8 +24,8 @@
         "@zodive/env": "workspace:*",
         "@zodive/ui": "workspace:*",
         "dayjs": "^1.11.7",
-        "next": "13.4.0",
-        "next-auth": "^4.22.1",
+        "next": "13.4.3",
+        "next-auth": "^4.22.0",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-hook-form": "^7.43.9",
@@ -33,13 +33,14 @@
         "zod": "^3.21.4"
     },
     "devDependencies": {
-        "@prisma/nextjs-monorepo-workaround-plugin": "^4.13.0",
+        "@prisma/nextjs-monorepo-workaround-plugin": "^4.14.1",
         "@types/node": "18.15.11",
-        "@types/react": "18.2.5",
-        "@types/react-dom": "18.2.3",
+        "@types/react": "18.0.34",
+        "@types/react-dom": "18.0.11",
         "@zodive/tsconfig": "workspace:*",
         "autoprefixer": "^10.4.14",
         "dotenv-cli": "^7.2.1",
+        "next-superjson-plugin": "^0.5.8",
         "postcss": "^8.4.21",
         "tailwindcss": "^3.3.1",
         "typescript": "5.0.4"

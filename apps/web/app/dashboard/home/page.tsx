@@ -1,9 +1,6 @@
-import { use } from 'react'
-
 import { Metadata } from 'next'
 
 import { Card } from '@zodive/ui'
-import SuperJSON from 'superjson'
 import { DashboardHomeTopBar } from '~/components/dashboard/home/TopBar'
 import DashboardHomeTransactionsList from '~/components/dashboard/home/TransactionsList'
 import { createCaller } from '~/lib/caller'
@@ -14,11 +11,11 @@ export const metadata: Metadata = {
 
 async function getTransactions() {
     const caller = await createCaller()
-    return SuperJSON.stringify(await caller.transactions.all())
+    return caller.transactions.all()
 }
 
-export default function DashboardHomePage() {
-    const transactions = use(getTransactions())
+export default async function DashboardHomePage() {
+    const transactions = await getTransactions()
 
     return (
         <div className="relative grid grid-rows-[44px_350px_1fr] gap-4 p-8 max-h-screen h-full">
