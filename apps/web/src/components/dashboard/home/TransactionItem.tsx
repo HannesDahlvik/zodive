@@ -1,9 +1,9 @@
 'use client'
 
 import { ArrowDown, ArrowUp, IconContext } from '@phosphor-icons/react'
+import dayjs from '@zodive/dayjs'
 import { Transaction } from '@zodive/db'
 import { cn } from '@zodive/ui'
-import dayjs from 'dayjs'
 
 interface Props {
     transaction: Transaction
