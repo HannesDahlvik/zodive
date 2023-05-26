@@ -3,7 +3,7 @@ import { DashboardHomeTopBar } from '~/components/dashboard/home/TopBar'
 
 export default function DashboardHomeLoadingPage() {
     return (
-        <div className="relative grid grid-rows-[44px_350px_1fr] gap-4 p-8 max-h-screen h-full">
+        <div className="relative grid grid-rows-[44px_200px_1fr] gap-4 p-8 max-h-screen h-full">
             <DashboardHomeTopBar />
 
             <Card>
@@ -21,6 +21,8 @@ export default function DashboardHomeLoadingPage() {
                     </div>
 
                     <div className="flex flex-col gap-3 mt-4">
+                        <Skeleton className="h-12" />
+                        <Skeleton className="h-12" />
                         <Skeleton className="h-12" />
                         <Skeleton className="h-12" />
                         <Skeleton className="h-12" />
