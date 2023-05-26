@@ -81,9 +81,7 @@ export default function DashboardSidebar() {
 
                     <div className="mt-2">
                         <p className="font-bold">{session?.user.name}</p>
-                        <p className="!mt-0 text-xs text-surface-300 dark:text-surface-200">
-                            {session?.user.email}
-                        </p>
+                        <p className="!mt-0 text-xs text-muted-foreground">{session?.user.email}</p>
                     </div>
                     <div className="flex gap-2 mt-4">
                         <Button onClick={toggleTheme}>

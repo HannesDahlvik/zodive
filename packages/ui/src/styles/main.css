@@ -8,7 +8,7 @@
         --foreground: 0, 0, 0;
 
         --muted: 235, 235, 235;
-        --muted-foreground: 150, 150, 150;
+        --muted-foreground: 100, 100, 100;
 
         --card: 255, 255, 255;
         --card-foreground: 0, 0, 0;
@@ -31,7 +31,7 @@
         --foreground: 255, 255, 255;
 
         --muted: 36, 36, 36;
-        --muted-foreground: 140, 140, 140;
+        --muted-foreground: 160, 160, 160;
 
         --card: 28, 28, 28;
         --card-foreground: 255, 255, 255;
