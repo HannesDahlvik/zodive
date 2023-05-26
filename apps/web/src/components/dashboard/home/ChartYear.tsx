@@ -7,12 +7,14 @@ import { Transaction } from '@zodive/db'
 import { Skeleton } from '@zodive/ui'
 import { ApexOptions } from 'apexcharts'
 import Chart from 'react-apexcharts'
+import { useDate } from '~/contexts/DateContext'
 
 interface Props {
     transactions: Transaction[]
 }
 
 export default function DashboardHomeChartYear({ transactions }: Props) {
+    const { date } = useDate()
     const [series, setSeries] = useState<ApexAxisChartSeries>()
     const [options, setOptions] = useState<ApexOptions>()
 
@@ -22,12 +24,11 @@ export default function DashboardHomeChartYear({ transactions }: Props) {
         const receivedPayments = [...yearArr]
 
         transactions.map((transaction) => {
-            const date = dayjs()
             const transactionDate = dayjs(transaction.date)
-            if (transactionDate.year() === date.year()) {
+            if (transactionDate.year() === date?.year()) {
                 const month = transactionDate.month()
-                if (transaction.type === 'PAYMENT') payments[month - 1] += transaction.amount
-                else receivedPayments[month - 1] += transaction.amount
+                if (transaction.type === 'PAYMENT') payments[month] += transaction.amount
+                else receivedPayments[month] += transaction.amount
             }
         })
 
@@ -59,7 +60,7 @@ export default function DashboardHomeChartYear({ transactions }: Props) {
                 color: '#22c55e'
             }
         ])
-    }, [transactions])
+    }, [transactions, date])
 
     if (!series && !options) return <Skeleton className="h-full" />
 
