@@ -34,7 +34,7 @@ export default async function DashboardHomePage() {
                         <h4 className="!mt-0">Transactions</h4>
                     </div>
 
-                    <DashboardHomeTransactionsList transactions={transactions} />
+                    <DashboardHomeTransactionsList transactions={transactions} data-superjson />
                 </Card>
             </div>
         </div>
