@@ -21,12 +21,16 @@ export default function DashboardHomeChartAll({ transactions }: Props) {
     useEffect(() => {
         const years: number[] = [date?.year() as number]
         transactions.map((transaction) => {
-            const transactionDate = dayjs(transaction.date)
-            const transactionYear = transactionDate.year()
+            const transactionYear = transaction.date.getFullYear()
             years.map(() => {
                 if (!years.includes(transactionYear)) years.push(transactionYear)
             })
         })
+
+        if (years.length <= 2) {
+            years.push(years[0] + 1)
+            years.push(years[0] + 2)
+        }
 
         const allArr = Array.from<number>({ length: years.length }).fill(0)
         const payments = [...allArr]
