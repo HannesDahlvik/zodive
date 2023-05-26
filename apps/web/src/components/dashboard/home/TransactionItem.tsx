@@ -1,14 +1,14 @@
 'use client'
 
 import { ArrowDown, ArrowUp, IconContext } from '@phosphor-icons/react'
+import dayjs, { Dayjs } from '@zodive/dayjs'
 import { Transaction } from '@zodive/db'
 import { cn } from '@zodive/ui'
-import dayjs from 'dayjs'
 
 interface Props {
     transaction: Transaction
     payment: boolean
-    date: Date
+    date: Dayjs
 }
 
 export default function DashboardHomeTransactionItem({ date, payment, transaction }: Props) {
@@ -41,7 +41,7 @@ export default function DashboardHomeTransactionItem({ date, payment, transactio
             </div>
 
             <div className="flex-col ml-auto">
-                <p className="text-border-accent">{dayjs(date).format('DD MMM')}</p>
+                <p className="text-border-accent">{date.format('DD MMM YYYY')}</p>
             </div>
         </div>
     )

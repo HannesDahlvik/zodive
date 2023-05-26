@@ -5,28 +5,28 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                background: 'rgb(var(--background))',
-                foreground: 'rgb(var(--foreground))',
+                background: 'rgba(var(--background))',
+                foreground: 'rgba(var(--foreground))',
                 border: {
-                    DEFAULT: 'rgb(var(--border))',
-                    accent: 'rgb(var(--border-accent))'
+                    DEFAULT: 'rgba(var(--border))',
+                    accent: 'rgba(var(--border-accent))'
                 },
                 primary: {
-                    DEFAULT: 'rgb(var(--primary))',
-                    foreground: 'rgb(var(--primary-foreground))',
-                    hover: 'rgb(var(--primary-hover))'
+                    DEFAULT: 'rgba(var(--primary))',
+                    foreground: 'rgba(var(--primary-foreground))',
+                    hover: 'rgba(var(--primary-hover))'
                 },
                 accent: {
-                    DEFAULT: 'rgb(var(--accent))',
-                    foreground: 'rgb(var(--accent-foreground))'
+                    DEFAULT: 'rgba(var(--accent))',
+                    foreground: 'rgba(var(--accent-foreground))'
                 },
                 muted: {
-                    DEFAULT: 'rgb(var(--muted))',
-                    foreground: 'rgb(var(--muted-foreground))'
+                    DEFAULT: 'rgba(var(--muted))',
+                    foreground: 'rgba(var(--muted-foreground))'
                 },
                 card: {
-                    DEFAULT: 'rgb(var(--card))',
-                    foreground: 'rgb(var(--card-foreground))'
+                    DEFAULT: 'rgba(var(--card))',
+                    foreground: 'rgba(var(--card-foreground))'
                 }
             },
             borderRadius: {

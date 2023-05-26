@@ -1,0 +1,9 @@
+{
+    "name": "@zodive/dayjs",
+    "version": "0.0.4",
+    "main": "index.ts",
+    "private": true,
+    "dependencies": {
+        "dayjs": "^1.11.7"
+    }
+}

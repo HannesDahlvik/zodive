@@ -1,3 +1,4 @@
+export { Badge, badgeVariants } from './components/Badge'
 export { Button, ButtonLink, buttonVariants } from './components/Button'
 export { Card } from './components/Card'
 export {

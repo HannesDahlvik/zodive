@@ -27,9 +27,9 @@ export default function SidebarLink({ active, icon, title, href, onClick }: Prop
     return (
         <div
             className={cn(
-                'flex items-center gap-4 cursor-pointer p-3 rounded-xl duration-200',
-                'hover:bg-primary hover:text-primary-foreground',
-                active && 'bg-primary text-primary-foreground'
+                'flex items-center gap-4 cursor-pointer p-3 rounded-xl transition-colors',
+                'hover:bg-primary/25',
+                active && 'bg-primary text-primary-foreground hover:bg-primary'
             )}
             onClick={handleClick}
         >
