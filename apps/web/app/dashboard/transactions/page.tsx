@@ -5,7 +5,7 @@ import { dashboardTransactionsColumns } from '~/components/dashboard/transaction
 import { createCaller } from '~/lib/caller'
 
 export const metadata: Metadata = {
-    title: 'Home'
+    title: 'Transactions'
 }
 
 async function getTransactions() {
