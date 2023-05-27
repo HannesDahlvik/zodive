@@ -62,5 +62,32 @@ export const transactionsRouter = router({
                 })
 
             return newTransaction
+        }),
+    delete: authedProcedure
+        .input(
+            z.object({
+                ids: z.string().array().min(1)
+            })
+        )
+        .mutation(async ({ ctx, input }) => {
+            const deletedTransactions = prisma.transaction
+                .deleteMany({
+                    where: {
+                        id: {
+                            in: input.ids
+                        },
+                        AND: {
+                            userId: ctx.user.id
+                        }
+                    }
+                })
+                .catch(() => {
+                    throw new TRPCError({
+                        code: 'INTERNAL_SERVER_ERROR',
+                        message: 'Could not delete transaction(s)'
+                    })
+                })
+
+            return deletedTransactions
         })
 })

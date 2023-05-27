@@ -5,7 +5,7 @@ import { Fragment } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 
 import SidebarLink from './SidebarLink'
-import { GearSix, House, IconContext, Moon, SignOut, Sun } from '@phosphor-icons/react'
+import { GearSix, House, IconContext, Moon, SignOut, Sun, Wallet } from '@phosphor-icons/react'
 import { Button, ButtonLink } from '@zodive/ui'
 import { signOut, useSession } from 'next-auth/react'
 import { useTheme } from '~/hooks/useTheme'
@@ -16,6 +16,11 @@ const links: DashboardSidebarLink[] = [
         title: 'Home',
         path: '/dashboard/home',
         icon: <House />
+    },
+    {
+        title: 'Transactions',
+        path: '/dashboard/transactions',
+        icon: <Wallet />
     },
     {
         title: 'Settings',

@@ -1,4 +1,4 @@
-import { transactionsRouter } from './router/transactions'
+import { transactionsRouter } from './routers/transactions'
 import { procedure, router } from './trpc'
 
 export const appRouter = router({
