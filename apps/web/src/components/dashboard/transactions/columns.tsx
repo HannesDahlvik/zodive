@@ -43,7 +43,7 @@ export const dashboardTransactionsColumns: ColumnDef<Transaction>[] = [
         accessorKey: 'amount',
         header: ({ column }) => {
             return (
-                <>
+                <div className="flex items-center">
                     Amount
                     <Button
                         className="ml-2"
@@ -53,7 +53,7 @@ export const dashboardTransactionsColumns: ColumnDef<Transaction>[] = [
                     >
                         <ArrowsDownUp className="h-4 w-4" />
                     </Button>
-                </>
+                </div>
             )
         },
         cell: ({ row }) => {
@@ -66,7 +66,7 @@ export const dashboardTransactionsColumns: ColumnDef<Transaction>[] = [
         accessorKey: 'date',
         header: ({ column }) => {
             return (
-                <>
+                <div className="flex items-center">
                     Date
                     <Button
                         className="ml-2"
@@ -76,7 +76,7 @@ export const dashboardTransactionsColumns: ColumnDef<Transaction>[] = [
                     >
                         <ArrowsDownUp className="h-4 w-4" />
                     </Button>
-                </>
+                </div>
             )
         },
         cell: ({ row }) => {
