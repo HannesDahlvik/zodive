@@ -54,7 +54,7 @@ export default function DashboardSidebar() {
 
             <div className="flex flex-col gap-3 p-8 pt-0">
                 {links.map((link) => {
-                    const active = pathname === link.path
+                    const active = pathname?.includes(link.path)
 
                     return (
                         <Fragment key={link.path}>

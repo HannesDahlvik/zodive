@@ -12,14 +12,14 @@
         "with-env": "dotenv -e ../../.env --"
     },
     "dependencies": {
-        "@prisma/client": "^4.13.0",
+        "@prisma/client": "^4.14.1",
         "@zodive/env": "workspace:*"
     },
     "devDependencies": {
         "@types/node": "18.15.11",
         "@zodive/tsconfig": "workspace:*",
         "dotenv-cli": "^7.2.1",
-        "prisma": "^4.13.0",
+        "prisma": "^4.14.1",
         "typescript": "5.0.4"
     }
 }

@@ -9,6 +9,7 @@ export {
     AlertDialogTitle,
     AlertDialogTrigger
 } from './components/AlertDialog'
+export { Avatar, AvatarFallback, AvatarImage } from './components/Avatar'
 export { Badge, badgeVariants } from './components/Badge'
 export { Button, ButtonLink, buttonVariants } from './components/Button'
 export { Card } from './components/Card'
@@ -40,6 +41,16 @@ export {
     DropdownMenuTrigger
 } from './components/Dropdown'
 export { Input } from './components/Input'
+export {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectSeparator,
+    SelectTrigger,
+    SelectValue
+} from './components/Select'
 export { Skeleton } from './components/Skeleton'
 export {
     Table,

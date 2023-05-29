@@ -13,9 +13,17 @@ model User {
   email         String?       @unique
   emailVerified DateTime?
   image         String?
+  defaultChart  ChartTypes    @default(year)
   accounts      Account[]
   sessions      Session[]
   transactions  Transaction[]
+}
+
+enum ChartTypes {
+  all
+  year
+  month
+  week
 }
 
 model Account {

@@ -15,3 +15,6 @@ export interface ErrorProps {
 
 export const dashboardHomeChartTypes = ['all', 'year', 'month', 'week'] as const
 export type DashboardHomeChartTypes = (typeof dashboardHomeChartTypes)[number]
+export interface DashboardSettings {
+    defaultChart: DashboardHomeChartTypes
+}

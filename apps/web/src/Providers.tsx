@@ -3,6 +3,7 @@
 import { PropsWithChildren, useState } from 'react'
 
 import { DateProvider } from './contexts/DateContext'
+import { SettingsProvider } from './contexts/SettingsContext'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink, loggerLink } from '@trpc/react-query'
 import { AlertsProvider, ModalsProvider } from '@zodive/ui'
@@ -38,13 +39,15 @@ export default function Providers({ children }: PropsWithChildren) {
         <SessionProvider>
             <api.Provider client={trpcClient} queryClient={queryClient}>
                 <QueryClientProvider client={queryClient}>
-                    <ModalsProvider>
-                        <AlertsProvider>
-                            <DateProvider>
-                                <>{children}</>
-                            </DateProvider>
-                        </AlertsProvider>
-                    </ModalsProvider>
+                    <SettingsProvider>
+                        <ModalsProvider>
+                            <AlertsProvider>
+                                <DateProvider>
+                                    <>{children}</>
+                                </DateProvider>
+                            </AlertsProvider>
+                        </ModalsProvider>
+                    </SettingsProvider>
                 </QueryClientProvider>
             </api.Provider>
         </SessionProvider>
