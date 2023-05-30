@@ -6,9 +6,8 @@ import { usePathname, useRouter } from 'next/navigation'
 
 import SidebarLink from './SidebarLink'
 import { GearSix, House, IconContext, Moon, SignOut, Sun, Wallet } from '@phosphor-icons/react'
-import { Button, ButtonLink } from '@zodive/ui'
+import { Button, ButtonLink, useTheme } from '@zodive/ui'
 import { signOut, useSession } from 'next-auth/react'
-import { useTheme } from '~/hooks/useTheme'
 import { DashboardSidebarLink } from '~/lib/types'
 
 const links: DashboardSidebarLink[] = [
@@ -39,9 +38,7 @@ export default function DashboardSidebar() {
 
     const handleSignout = () => {
         router.replace('/')
-        signOut({
-            redirect: false
-        })
+        signOut()
     }
 
     return (

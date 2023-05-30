@@ -6,7 +6,7 @@ import { DateProvider } from './contexts/DateContext'
 import { SettingsProvider } from './contexts/SettingsContext'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink, loggerLink } from '@trpc/react-query'
-import { AlertsProvider, ModalsProvider } from '@zodive/ui'
+import { AlertsProvider, ModalsProvider, ThemeProvider } from '@zodive/ui'
 import { SessionProvider } from 'next-auth/react'
 import superjson from 'superjson'
 import { api } from '~/lib/api'
@@ -39,15 +39,17 @@ export default function Providers({ children }: PropsWithChildren) {
         <SessionProvider>
             <api.Provider client={trpcClient} queryClient={queryClient}>
                 <QueryClientProvider client={queryClient}>
-                    <SettingsProvider>
-                        <ModalsProvider>
-                            <AlertsProvider>
-                                <DateProvider>
-                                    <>{children}</>
-                                </DateProvider>
-                            </AlertsProvider>
-                        </ModalsProvider>
-                    </SettingsProvider>
+                    <ThemeProvider>
+                        <SettingsProvider>
+                            <ModalsProvider>
+                                <AlertsProvider>
+                                    <DateProvider>
+                                        <>{children}</>
+                                    </DateProvider>
+                                </AlertsProvider>
+                            </ModalsProvider>
+                        </SettingsProvider>
+                    </ThemeProvider>
                 </QueryClientProvider>
             </api.Provider>
         </SessionProvider>

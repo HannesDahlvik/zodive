@@ -63,7 +63,7 @@ export {
     TableRow
 } from './components/Table'
 export { Tabs, TabsContent, TabsList, TabsTrigger } from './components/Tabs'
-export { Theme } from './components/Theme'
+export { ThemeProvider, useTheme } from './components/Theme'
 
 export { AlertsProvider, useAlerts } from './alerts'
 

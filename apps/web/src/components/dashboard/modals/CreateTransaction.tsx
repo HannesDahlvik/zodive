@@ -71,6 +71,7 @@ export default function DashboardCreateTransactionModal() {
             <Input
                 label="Amount"
                 type="number"
+                step={0.01}
                 required
                 error={errors.amount?.message}
                 {...register('amount', {
