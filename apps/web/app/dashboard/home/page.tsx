@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-import { Card } from '@zodive/ui'
+import { ButtonLink, Card } from '@zodive/ui'
 import DashboardHomeChart from '~/components/dashboard/home/Chart'
 import DashboardHomeStats from '~/components/dashboard/home/Stats'
 import { DashboardHomeTopBar } from '~/components/dashboard/home/TopBar'
@@ -35,6 +35,10 @@ export default async function DashboardHomePage() {
                 <Card>
                     <div className="flex justify-between items-center">
                         <h4 className="!mt-0">Latest Transactions</h4>
+
+                        <ButtonLink href="/dashboard/transactions" size="sm" variant="outline">
+                            View all
+                        </ButtonLink>
                     </div>
 
                     <DashboardHomeTransactionsList

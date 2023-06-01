@@ -45,7 +45,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
 
 export type ButtonLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
     ButtonBaseProps & {
-        href?: string | any
+        href: string | any
     }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
