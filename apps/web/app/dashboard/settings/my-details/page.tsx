@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { useSettings } from '~/contexts/SettingsContext'
 import { api } from '~/lib/api'
+import { parseUsername } from '~/lib/parseUsername'
 
 const updateUserSchema = z.object({
     name: z.string().min(5)
@@ -58,7 +59,9 @@ export default function DashboardSettingsMyDetailsPage() {
                     src={session?.user.image as string}
                     alt={session?.user.name as string}
                 />
-                <AvatarFallback className="text-2xl">HD</AvatarFallback>
+                <AvatarFallback className="text-2xl">
+                    {parseUsername(session?.user.name as string)}
+                </AvatarFallback>
             </Avatar>
 
             <form className="flex flex-col gap-4 w-96" onSubmit={handleSubmit(handleUpdateUser)}>

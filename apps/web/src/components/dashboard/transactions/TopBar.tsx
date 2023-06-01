@@ -21,7 +21,8 @@ export default function DashboardTransactionsTopBar({ table }: Props) {
     const handleDeleteSelected = () => {
         createAlert({
             title: 'Confirm delete',
-            description: `This action cannot be undone. This will permanently delete your selected transactions.`,
+            description:
+                'This action cannot be undone. This will permanently delete your selected transactions.',
             onConfirm: () => {
                 const rows = table.getFilteredSelectedRowModel().rows
                 const ids: string[] = []

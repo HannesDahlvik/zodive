@@ -1,18 +1,11 @@
 'use client'
 
-import { ArrowsDownUp, DotsThree } from '@phosphor-icons/react'
+import DashboardTransactionsRowActions from './RowActions'
+import { ArrowsDownUp } from '@phosphor-icons/react'
 import { ColumnDef } from '@tanstack/react-table'
 import dayjs from '@zodive/dayjs'
 import { Transaction, TransactionType } from '@zodive/db'
-import {
-    Button,
-    Checkbox,
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuTrigger
-} from '@zodive/ui'
+import { Button, Checkbox } from '@zodive/ui'
 import { currencyFormatter } from '~/lib/currencyFormatter'
 
 export const dashboardTransactionsColumns: ColumnDef<Transaction>[] = [
@@ -94,26 +87,6 @@ export const dashboardTransactionsColumns: ColumnDef<Transaction>[] = [
     },
     {
         id: 'actions',
-        cell: ({ row }) => {
-            const transaction = row.original
-
-            return (
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="h-8 w-8 p-0">
-                            <DotsThree size={24} />
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem
-                            onClick={() => navigator.clipboard.writeText(transaction.id)}
-                        >
-                            Copy transaction ID
-                        </DropdownMenuItem>
-                    </DropdownMenuContent>
-                </DropdownMenu>
-            )
-        }
+        cell: ({ row }) => <DashboardTransactionsRowActions transaction={row.original} />
     }
 ]

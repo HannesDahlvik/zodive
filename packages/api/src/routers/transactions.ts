@@ -63,6 +63,28 @@ export const transactionsRouter = router({
 
             return newTransaction
         }),
+    edit: authedProcedure
+        .input(
+            z.object({
+                id: z.string().cuid(),
+                title: z.string().min(3),
+                amount: z.number(),
+                date: z.date(),
+                type: z.enum(['PAYMENT', 'RECEIVED_PAYMENT'])
+            })
+        )
+        .mutation(async ({ input }) => {
+            const editedTransaction = await prisma.transaction.update({
+                data: {
+                    ...input
+                },
+                where: {
+                    id: input.id
+                }
+            })
+
+            return editedTransaction
+        }),
     delete: authedProcedure
         .input(
             z.object({
@@ -70,7 +92,7 @@ export const transactionsRouter = router({
             })
         )
         .mutation(async ({ ctx, input }) => {
-            const deletedTransactions = prisma.transaction
+            const deletedTransactions = await prisma.transaction
                 .deleteMany({
                     where: {
                         id: {
