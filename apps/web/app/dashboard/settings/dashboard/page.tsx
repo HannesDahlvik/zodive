@@ -9,7 +9,8 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-    Skeleton
+    Skeleton,
+    useToast
 } from '@zodive/ui'
 import { useSession } from 'next-auth/react'
 import { useForm } from 'react-hook-form'
@@ -27,6 +28,7 @@ type UpdateUserSchema = z.infer<typeof updateUserSchema>
 export default function DashboardSettingsDashboardPage() {
     const { data: session, update } = useSession()
     const { settings } = useSettings()
+    const { toast } = useToast()
 
     const updateUserMutation = api.settings.update.useMutation()
 
@@ -48,11 +50,18 @@ export default function DashboardSettingsDashboardPage() {
             },
             {
                 onError: (err) => {
-                    console.error(err)
+                    toast({
+                        title: 'Error',
+                        description: err.message,
+                        variant: 'error'
+                    })
                 },
                 onSuccess: async (res) => {
                     reset({
                         defaultChart: res.defaultChart
+                    })
+                    toast({
+                        title: 'Saved changes'
                     })
                     await update(res)
                 }

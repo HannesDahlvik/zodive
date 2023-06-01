@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ChartTypes } from '@zodive/db'
-import { Avatar, AvatarFallback, AvatarImage, Button, Input, Skeleton } from '@zodive/ui'
+import { Avatar, AvatarFallback, AvatarImage, Button, Input, Skeleton, useToast } from '@zodive/ui'
 import { useSession } from 'next-auth/react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -18,6 +18,7 @@ type UpdateUserSchema = z.infer<typeof updateUserSchema>
 export default function DashboardSettingsMyDetailsPage() {
     const { data: session, update } = useSession()
     const { settings } = useSettings()
+    const { toast } = useToast()
 
     const updateUserMutation = api.settings.update.useMutation()
 
@@ -38,11 +39,18 @@ export default function DashboardSettingsMyDetailsPage() {
             },
             {
                 onError: (err) => {
-                    console.error(err)
+                    toast({
+                        title: 'Error',
+                        description: err.message,
+                        variant: 'error'
+                    })
                 },
                 onSuccess: async (res) => {
                     reset({
                         name: res.name as string
+                    })
+                    toast({
+                        title: 'Saved changes'
                     })
                     await update(res)
                 }

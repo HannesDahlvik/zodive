@@ -6,7 +6,7 @@ import { DateProvider } from './contexts/DateContext'
 import { SettingsProvider } from './contexts/SettingsContext'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink, loggerLink } from '@trpc/react-query'
-import { AlertsProvider, ModalsProvider, ThemeProvider } from '@zodive/ui'
+import { AlertsProvider, ModalsProvider, ThemeProvider, Toaster } from '@zodive/ui'
 import { SessionProvider } from 'next-auth/react'
 import superjson from 'superjson'
 import { api } from '~/lib/api'
@@ -45,6 +45,7 @@ export default function Providers({ children }: PropsWithChildren) {
                                 <AlertsProvider>
                                     <DateProvider>
                                         <>{children}</>
+                                        <Toaster />
                                     </DateProvider>
                                 </AlertsProvider>
                             </ModalsProvider>

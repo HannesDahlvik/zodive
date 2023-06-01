@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Transaction, TransactionType } from '@zodive/db'
-import { Button, Input, Tabs, TabsList, TabsTrigger, useModals } from '@zodive/ui'
+import { Button, Input, Tabs, TabsList, TabsTrigger, useModals, useToast } from '@zodive/ui'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { api } from '~/lib/api'
@@ -11,16 +11,17 @@ interface Props {
     transaction: Transaction
 }
 
+const editTransactionSchema = z.object({
+    type: z.enum(['PAYMENT', 'RECEIVED_PAYMENT']),
+    title: z.string().min(3).max(32),
+    amount: z.number().min(1),
+    date: z.date()
+})
+type EditTransactionSchema = z.infer<typeof editTransactionSchema>
+
 export default function DashboardEditTransactionModal({ transaction }: Props) {
     const { closeAllModals } = useModals()
-
-    const editTransactionSchema = z.object({
-        type: z.enum(['PAYMENT', 'RECEIVED_PAYMENT']),
-        title: z.string().min(3).max(32),
-        amount: z.number().min(1),
-        date: z.date()
-    })
-    type EditTransactionSchema = z.infer<typeof editTransactionSchema>
+    const { toast } = useToast()
 
     const trpcCtx = api.useContext()
     const editTransactionMutation = api.transactions.edit.useMutation()
@@ -45,7 +46,11 @@ export default function DashboardEditTransactionModal({ transaction }: Props) {
             },
             {
                 onError: (err) => {
-                    console.error(err)
+                    toast({
+                        title: 'Error',
+                        description: err.message,
+                        variant: 'error'
+                    })
                 },
                 onSuccess: () => {
                     trpcCtx.transactions.all.invalidate()

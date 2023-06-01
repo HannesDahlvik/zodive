@@ -64,9 +64,20 @@ export {
 } from './components/Table'
 export { Tabs, TabsContent, TabsList, TabsTrigger } from './components/Tabs'
 export { ThemeProvider, useTheme } from './components/Theme'
+export {
+    Toast,
+    ToastAction,
+    ToastClose,
+    ToastDescription,
+    ToastProvider,
+    ToastTitle,
+    ToastViewport
+} from './components/Toast'
+export { Toaster } from './components/Toaster'
 
 export { AlertsProvider, useAlerts } from './alerts'
 
 export { ModalsProvider, useModals } from './modals'
 
+export { toast, useToast } from './lib/useToast'
 export * from './lib/utils'
