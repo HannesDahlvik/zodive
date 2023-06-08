@@ -62,5 +62,54 @@ export const transactionsRouter = router({
                 })
 
             return newTransaction
+        }),
+    edit: authedProcedure
+        .input(
+            z.object({
+                id: z.string().cuid(),
+                title: z.string().min(3),
+                amount: z.number(),
+                date: z.date(),
+                type: z.enum(['PAYMENT', 'RECEIVED_PAYMENT'])
+            })
+        )
+        .mutation(async ({ input }) => {
+            const editedTransaction = await prisma.transaction.update({
+                data: {
+                    ...input
+                },
+                where: {
+                    id: input.id
+                }
+            })
+
+            return editedTransaction
+        }),
+    delete: authedProcedure
+        .input(
+            z.object({
+                ids: z.string().array().min(1)
+            })
+        )
+        .mutation(async ({ ctx, input }) => {
+            const deletedTransactions = await prisma.transaction
+                .deleteMany({
+                    where: {
+                        id: {
+                            in: input.ids
+                        },
+                        AND: {
+                            userId: ctx.user.id
+                        }
+                    }
+                })
+                .catch(() => {
+                    throw new TRPCError({
+                        code: 'INTERNAL_SERVER_ERROR',
+                        message: 'Could not delete transaction(s)'
+                    })
+                })
+
+            return deletedTransactions
         })
 })

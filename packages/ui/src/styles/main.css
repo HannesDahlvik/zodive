@@ -7,7 +7,7 @@
         --background: 238, 238, 238;
         --foreground: 0, 0, 0;
 
-        --muted: 235, 235, 235;
+        --muted: 215, 215, 215;
         --muted-foreground: 100, 100, 100;
 
         --card: 255, 255, 255;
@@ -22,6 +22,9 @@
 
         --accent: 214, 214, 214;
         --accent-foreground: 0, 0, 0;
+
+        --popover: 240, 240, 240;
+        --popover-foreground: 0, 0, 0;
 
         --radius: 4px;
     }
@@ -45,6 +48,9 @@
 
         --accent: 36, 36, 36;
         --accent-foreground: 255, 255, 255;
+
+        --popover: 28, 28, 28;
+        --popover-foreground: 255, 255, 255;
 
         --radius: 4px;
     }
@@ -80,6 +86,9 @@
     }
     p {
         @apply leading-5 [&:not(:first-child)]:mt-6;
+    }
+    a {
+        @apply text-blue-600;
     }
 
     * {

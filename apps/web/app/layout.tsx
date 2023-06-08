@@ -5,7 +5,6 @@ import { Lato } from 'next/font/google'
 
 import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
-import { Theme } from '@zodive/ui'
 import Providers from '~/Providers'
 
 const lato = Lato({
@@ -14,11 +13,13 @@ const lato = Lato({
 })
 
 export const metadata: Metadata = {
+    creator: 'Hannes Dahlvik',
+    description:
+        'Zodive is an open source finance tracker, built for those who are interested in tracking what you spend your money on.',
     title: {
         default: 'Zodive',
         template: '%s | Zodive'
     },
-    creator: 'Hannes Dahlvik',
     themeColor: [
         { media: '(prefers-color-scheme: light)', color: 'white' },
         { media: '(prefers-color-scheme: dark)', color: 'black' }
@@ -32,12 +33,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
     return (
         <html lang="en">
             <body className={lato.className}>
-                <Theme>
-                    <Providers>
-                        {children}
-                        <Analytics />
-                    </Providers>
-                </Theme>
+                <Providers>
+                    {children}
+                    <Analytics />
+                </Providers>
             </body>
         </html>
     )

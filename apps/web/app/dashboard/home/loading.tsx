@@ -1,4 +1,4 @@
-import { Card, Skeleton } from '@zodive/ui'
+import { ButtonLink, Card, Skeleton } from '@zodive/ui'
 import { DashboardHomeTopBar } from '~/components/dashboard/home/TopBar'
 
 export default function DashboardHomeLoadingPage() {
@@ -17,7 +17,11 @@ export default function DashboardHomeLoadingPage() {
 
                 <Card>
                     <div className="flex justify-between items-center">
-                        <h4 className="!mt-0">Transactions</h4>
+                        <h4 className="!mt-0">Latest Transactions</h4>
+
+                        <ButtonLink href="/dashboard/transactions" size="sm" variant="outline">
+                            View all
+                        </ButtonLink>
                     </div>
 
                     <div className="flex flex-col gap-3 mt-4">

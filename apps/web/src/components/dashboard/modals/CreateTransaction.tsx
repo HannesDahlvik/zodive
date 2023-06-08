@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import type { TransactionType } from '@zodive/db'
-import { Button, Input, Tabs, TabsList, TabsTrigger, useModals } from '@zodive/ui'
+import { Button, Input, Tabs, TabsList, TabsTrigger, useModals, useToast } from '@zodive/ui'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { api } from '~/lib/api'
@@ -17,6 +17,7 @@ type CreateTransactionSchema = z.infer<typeof createTransactionSchema>
 
 export default function DashboardCreateTransactionModal() {
     const { closeAllModals } = useModals()
+    const { toast } = useToast()
 
     const trpcCtx = api.useContext()
     const createTransactionMutation = api.transactions.create.useMutation()
@@ -37,7 +38,11 @@ export default function DashboardCreateTransactionModal() {
             },
             {
                 onError: (err) => {
-                    console.error(err)
+                    toast({
+                        title: 'Error',
+                        description: err.message,
+                        variant: 'error'
+                    })
                 },
                 onSuccess: () => {
                     trpcCtx.transactions.all.invalidate()
@@ -71,6 +76,7 @@ export default function DashboardCreateTransactionModal() {
             <Input
                 label="Amount"
                 type="number"
+                step={0.01}
                 required
                 error={errors.amount?.message}
                 {...register('amount', {

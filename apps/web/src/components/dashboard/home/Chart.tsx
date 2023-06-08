@@ -1,25 +1,33 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import DashboardHomeChartAll from './ChartAll'
 import DashboardHomeChartMonth from './ChartMonth'
 import DashboardHomeChartWeek from './ChartWeek'
 import DashboardHomeChartYear from './ChartYear'
 import { CaretLeft, CaretRight, IconContext } from '@phosphor-icons/react'
-import { Transaction } from '@zodive/db'
+import { ChartTypes, Transaction } from '@zodive/db'
 import { Badge, cn } from '@zodive/ui'
 import { useDate } from '~/contexts/DateContext'
-import { DashboardHomeChartTypes, dashboardHomeChartTypes } from '~/lib/types'
+import { useSettings } from '~/contexts/SettingsContext'
+import { dashboardHomeChartTypes } from '~/lib/types'
 
 interface Props {
     transactions: Transaction[]
 }
 
 export default function DashboardHomeChart({ transactions }: Props) {
+    const { settings } = useSettings()
     const { date, nextYear, nextMonth, nextWeek, prevYear, prevMonth, prevWeek, resetDate } =
         useDate()
-    const [chartType, setChartType] = useState<DashboardHomeChartTypes>('year')
+    const [chartType, setChartType] = useState<ChartTypes>('year')
+
+    useEffect(() => {
+        if (settings?.defaultChart) {
+            setChartType(settings.defaultChart)
+        }
+    }, [settings])
 
     return (
         <div className="grid grid-rows-[30px_1fr] gap-4 h-full">

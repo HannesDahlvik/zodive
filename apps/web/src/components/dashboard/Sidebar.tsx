@@ -2,13 +2,13 @@
 
 import { Fragment } from 'react'
 
+import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
 import SidebarLink from './SidebarLink'
-import { GearSix, House, IconContext, Moon, SignOut, Sun } from '@phosphor-icons/react'
-import { Button, ButtonLink } from '@zodive/ui'
+import { GearSix, House, IconContext, Moon, SignOut, Sun, Wallet } from '@phosphor-icons/react'
+import { Button, ButtonLink, useTheme } from '@zodive/ui'
 import { signOut, useSession } from 'next-auth/react'
-import { useTheme } from '~/hooks/useTheme'
 import { DashboardSidebarLink } from '~/lib/types'
 
 const links: DashboardSidebarLink[] = [
@@ -16,6 +16,11 @@ const links: DashboardSidebarLink[] = [
         title: 'Home',
         path: '/dashboard/home',
         icon: <House />
+    },
+    {
+        title: 'Transactions',
+        path: '/dashboard/transactions',
+        icon: <Wallet />
     },
     {
         title: 'Settings',
@@ -34,22 +39,20 @@ export default function DashboardSidebar() {
 
     const handleSignout = () => {
         router.replace('/')
-        signOut({
-            redirect: false
-        })
+        signOut()
     }
 
     return (
         <div className="flex flex-col w-[300px] h-screen bg-card border-r border-border">
             <div className="p-8 text-center">
-                <ButtonLink href="/" variant="link" className="text-2xl">
+                <Link href="/" className="text-2xl text-black dark:text-white">
                     Zodive
-                </ButtonLink>
+                </Link>
             </div>
 
             <div className="flex flex-col gap-3 p-8 pt-0">
                 {links.map((link) => {
-                    const active = pathname === link.path
+                    const active = pathname?.includes(link.path)
 
                     return (
                         <Fragment key={link.path}>

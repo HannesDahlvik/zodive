@@ -21,12 +21,16 @@ export default function DashboardHomeChartAll({ transactions }: Props) {
     useEffect(() => {
         const years: number[] = [date?.year() as number]
         transactions.map((transaction) => {
-            const transactionDate = dayjs(transaction.date)
-            const transactionYear = transactionDate.year()
+            const transactionYear = transaction.date.getFullYear()
             years.map(() => {
                 if (!years.includes(transactionYear)) years.push(transactionYear)
             })
         })
+
+        if (years.length <= 2) {
+            years.push(years[0] + 1)
+            years.push(years[0] + 2)
+        }
 
         const allArr = Array.from<number>({ length: years.length }).fill(0)
         const payments = [...allArr]
@@ -58,12 +62,12 @@ export default function DashboardHomeChartAll({ transactions }: Props) {
         setSeries([
             {
                 name: 'Payments',
-                data: payments,
+                data: payments.map((val) => Number(val.toFixed(2))),
                 color: '#ef4444'
             },
             {
                 name: 'Received payments',
-                data: receivedPayments,
+                data: receivedPayments.map((val) => Number(val.toFixed(2))),
                 color: '#22c55e'
             }
         ])

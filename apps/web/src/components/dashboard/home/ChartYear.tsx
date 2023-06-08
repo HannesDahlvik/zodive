@@ -51,12 +51,12 @@ export default function DashboardHomeChartYear({ transactions }: Props) {
         setSeries([
             {
                 name: 'Payments',
-                data: payments,
+                data: payments.map((val) => Number(val.toFixed(2))),
                 color: '#ef4444'
             },
             {
                 name: 'Received payments',
-                data: receivedPayments,
+                data: receivedPayments.map((val) => Number(val.toFixed(2))),
                 color: '#22c55e'
             }
         ])

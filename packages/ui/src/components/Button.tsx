@@ -23,9 +23,10 @@ const buttonVariants = cva(
                 link: 'bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-100'
             },
             size: {
-                default: 'h-10 py-2 px-5 text-md',
+                xs: 'h-8 px-2 rounded-md',
                 sm: 'h-9 px-4 rounded-md',
-                lg: 'h-11 px-8 rounded-md'
+                default: 'h-10 py-2 px-5',
+                lg: 'h-11 px-8 rounded-md text-lg'
             }
         },
         defaultVariants: {
@@ -44,7 +45,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
 
 export type ButtonLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
     ButtonBaseProps & {
-        href?: string | any
+        href: string | any
     }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -65,7 +66,11 @@ Button.displayName = 'Button'
 const ButtonLink = React.forwardRef<HTMLLinkElement, ButtonLinkProps>(
     ({ className, variant, size, href, ...props }, ref) => (
         <Link
-            className={cn(buttonVariants({ variant, size, className }))}
+            className={cn(
+                buttonVariants({ variant, size, className }),
+                'text-white dark:text-black',
+                variant === 'outline' && 'text-black dark:text-white'
+            )}
             href={href}
             ref={ref as any}
             {...props}
