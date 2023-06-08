@@ -32,7 +32,7 @@ export default function PublicNavbar() {
             )}
         >
             <div className="container flex justify-between items-center">
-                <Link href="/" className="font-bold text-lg">
+                <Link href="/" className="font-bold text-lg text-black dark:text-white">
                     Zodive
                 </Link>
 

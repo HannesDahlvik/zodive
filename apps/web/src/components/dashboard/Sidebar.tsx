@@ -2,6 +2,7 @@
 
 import { Fragment } from 'react'
 
+import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
 import SidebarLink from './SidebarLink'
@@ -44,9 +45,9 @@ export default function DashboardSidebar() {
     return (
         <div className="flex flex-col w-[300px] h-screen bg-card border-r border-border">
             <div className="p-8 text-center">
-                <ButtonLink href="/" variant="link" className="text-2xl">
+                <Link href="/" className="text-2xl text-black dark:text-white">
                     Zodive
-                </ButtonLink>
+                </Link>
             </div>
 
             <div className="flex flex-col gap-3 p-8 pt-0">

@@ -66,7 +66,11 @@ Button.displayName = 'Button'
 const ButtonLink = React.forwardRef<HTMLLinkElement, ButtonLinkProps>(
     ({ className, variant, size, href, ...props }, ref) => (
         <Link
-            className={cn(buttonVariants({ variant, size, className }))}
+            className={cn(
+                buttonVariants({ variant, size, className }),
+                'text-white dark:text-black',
+                variant === 'outline' && 'text-black dark:text-white'
+            )}
             href={href}
             ref={ref as any}
             {...props}

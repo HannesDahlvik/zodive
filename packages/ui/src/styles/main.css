@@ -87,6 +87,9 @@
     p {
         @apply leading-5 [&:not(:first-child)]:mt-6;
     }
+    a {
+        @apply text-blue-600;
+    }
 
     * {
         @apply box-border;

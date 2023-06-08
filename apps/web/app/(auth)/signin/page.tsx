@@ -3,10 +3,9 @@ import { Metadata } from 'next'
 import { Skeleton } from '@zodive/ui'
 import { getProviders } from 'next-auth/react'
 import AuthProviders from '~/components/auth/AuthProviders'
-import SigninForm from '~/components/auth/SigninForm'
 
 export const metadata: Metadata = {
-    title: 'Signin'
+    title: 'Sign in'
 }
 
 export default async function SigninPage() {
@@ -14,18 +13,7 @@ export default async function SigninPage() {
 
     return (
         <>
-            <h2 className="mb-6 pb-0">Sign in</h2>
-
-            <SigninForm />
-
-            <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                    <span className="w-full border-t border-border" />
-                </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-card px-2 text-card-foreground">Or continue with</span>
-                </div>
-            </div>
+            <h2 className="mb-4 pb-0">Sign in</h2>
 
             {!providers ? (
                 <div className="flex flex-col gap-2">
