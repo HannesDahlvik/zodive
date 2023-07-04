@@ -1,5 +1,7 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import type { TransactionType } from '@zodive/db'
 import { Button, Input, Tabs, TabsList, TabsTrigger, useModals, useToast } from '@zodive/ui'
@@ -16,6 +18,8 @@ const createTransactionSchema = z.object({
 type CreateTransactionSchema = z.infer<typeof createTransactionSchema>
 
 export default function DashboardCreateTransactionModal() {
+    const router = useRouter()
+
     const { closeAllModals } = useModals()
     const { toast } = useToast()
 
@@ -45,6 +49,7 @@ export default function DashboardCreateTransactionModal() {
                     })
                 },
                 onSuccess: () => {
+                    router.refresh()
                     trpcCtx.transactions.all.invalidate()
                     closeAllModals()
                 }

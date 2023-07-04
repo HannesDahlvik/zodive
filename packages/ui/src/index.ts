@@ -41,6 +41,7 @@ export {
     DropdownMenuTrigger
 } from './components/Dropdown'
 export { Input } from './components/Input'
+export { Label } from './components/Label'
 export {
     Select,
     SelectContent,

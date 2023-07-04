@@ -1,5 +1,7 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
+
 import DashboardEditTransactionModal from '../modals/EditTransaction'
 import { Copy, DotsThree, PencilSimple, TrashSimple } from '@phosphor-icons/react'
 import { Transaction } from '@zodive/db'
@@ -21,6 +23,8 @@ interface Props {
 }
 
 export default function DashboardTransactionsRowActions({ transaction }: Props) {
+    const router = useRouter()
+
     const { createAlert } = useAlerts()
     const { openModal, closeAllModals } = useModals()
 
@@ -49,6 +53,7 @@ export default function DashboardTransactionsRowActions({ transaction }: Props) 
                             console.error(err)
                         },
                         onSuccess: () => {
+                            router.refresh()
                             trpcCtx.transactions.all.invalidate()
                             closeAllModals()
                         }

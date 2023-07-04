@@ -9,7 +9,11 @@
         "packages/config/*"
     ],
     "scripts": {
-        "web": "turbo run dev --filter @zodive/web",
+        "web": "pnpm --filter @zodive/web --",
+        "api": "pnpm --filter @zodive/api --",
+        "auth": "pnpm --filter @zodive/auth --",
+        "db": "pnpm --filter @zodive/db --",
+        "ui": "pnpm --filter @zodive/ui --",
         "build": "turbo run build",
         "lint": "turbo run lint",
         "bump": "node ./scripts/bump.js"
@@ -18,6 +22,6 @@
         "@trivago/prettier-plugin-sort-imports": "^4.1.1",
         "eslint-config-custom": "workspace:*",
         "prettier": "^2.8.7",
-        "turbo": "^1.10.2"
+        "turbo": "^1.10.4"
     }
 }
